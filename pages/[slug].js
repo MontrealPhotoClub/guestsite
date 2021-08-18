@@ -4,6 +4,7 @@ import { getPostBySlug, getAllPosts } from '../lib/api'
 import markdownToHtml from '../lib/markdownToHtml'
 
 import PostBody from '../components/PostBody'
+import SignupCard from '../components/SignupCard'
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
@@ -17,6 +18,9 @@ export default function Post({ post, morePosts, preview }) {
         <img className="my-6" src={post.ogImage.url} alt="" />
         <PostBody content={post.content} />
       </main>
+      <section className="mt-12">
+        <SignupCard />
+      </section>
     </div>
   )
 }

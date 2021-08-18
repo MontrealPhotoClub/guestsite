@@ -1,12 +1,6 @@
 export default function SignupCard() {
   return (
-    <div className="grid grid-flow-row px-2 gap-y-16">
-      <h1 className="text-4xl font-bold sm:text-5xl">
-        We're a friendly gathering of photographers and we're hosting regular
-        events in Montréal.
-      </h1>
-
-      <div className="bg-indigo-700 rounded-lg md:py-12 md:px-12 lg:py-16 lg:px-16 xl:flex xl:items-center">
+      <div className="py-12 bg-indigo-700 rounded-lg md:px-12 lg:px-16 xl:flex xl:items-center">
         <div className="xl:w-0 xl:flex-1">
           <h2 className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
             Make sure you don't miss out our future events.
@@ -41,6 +35,5 @@ export default function SignupCard() {
           </p>
         </div>
       </div>
-    </div>
   )
 }
