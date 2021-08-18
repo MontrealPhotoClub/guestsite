@@ -1,0 +1,20 @@
+- name: Jp Valery
+  bio: |
+    After hosting multiple events with Unsplash and the Metro Photo Challenge, I decided to make this a more formal club. So that we can keep having fun, learning from each other, and meeting other fine folks.
+  avatar: ./avatars/jpvalery.jpg
+  featured: true
+  social:
+    - url: https://unsplash.com/jpvalery
+    - url: https://twitter.com/jpvalery
+    - url: https://instagram.com/jpvalery
+    - url: https://github.com/jpvalery
+    - url: https://linkedin.com/in/jpvalery
+- name: Montréal Photo Club
+  bio: |
+    A friendly gathering of photographers of all horizons and skills.
+  avatar: ./avatars/montreal-photo-club.png
+  featured: false
+  social:
+    - url: https://instagram.com/montrealphotoclub
+    - url: https://twitter.com/mtlphotoclub
+    - url: https://github.com/montrealphotoclub
