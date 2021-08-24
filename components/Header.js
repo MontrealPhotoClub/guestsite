@@ -2,6 +2,8 @@ import NextLink from 'next/link'
 import Logo from '../elements/logos/Logo'
 import LogoMobile from '../elements/logos/LogoMobile'
 
+import { TranslateIcon } from '@heroicons/react/solid'
+
 export default function Header() {
   return (
     <div className="sticky top-0 z-50 max-w-6xl pt-4 mx-auto bg-white bg-opacity-90">
@@ -28,6 +30,9 @@ export default function Header() {
           <NextLink href="/contact">
             <span className="cursor-pointer hover:text-brand-600">Contact</span>
           </NextLink>
+          <a href="https://fr.montrealphoto.club">
+            <TranslateIcon className="w-5 h-5 cursor-pointer" />
+          </a>
         </div>
       </div>
     </div>
