@@ -1,16 +1,12 @@
 import { useRouter } from 'next/router'
-import ErrorPage from 'next/error'
 import { getPostBySlug, getAllPosts } from '../lib/api'
 import markdownToHtml from '../lib/markdownToHtml'
 
 import PostBody from '../components/PostBody'
 import SignupCard from '../components/SignupCard'
 
-export default function Post({ post, morePosts, preview }) {
+export default function Post({ post }) {
   const router = useRouter()
-  if (!router.isFallback && !post?.slug) {
-    return <ErrorPage statusCode={404} />
-  }
   return (
     <div>
       <main className="max-w-4xl mx-auto">
