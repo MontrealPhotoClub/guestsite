@@ -1,8 +1,5 @@
-import { getAllPosts } from '../lib/api'
+import { getEventPosts } from '../lib/api'
 import PostCard from '../components/PostCard'
-
-import markdownToHtml from '../lib/markdownToHtml'
-import SignupCard from '../components/SignupCard'
 
 export default function Index({ allPosts }) {
   return (
@@ -22,7 +19,7 @@ export default function Index({ allPosts }) {
 }
 
 export async function getStaticProps() {
-  const allPosts = getAllPosts([
+  const allPosts = getEventPosts([
     'title',
     'date',
     'slug',
