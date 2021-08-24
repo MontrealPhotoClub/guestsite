@@ -13,7 +13,7 @@ class MyDocument extends Document {
           <script
             async
             defer
-            data-website-id=""
+            data-website-id={process.env.NEXT_PUBLIC_UMAMI} 
             src="https://analytics.jpvalery.com/umami.js"
           ></script>
         </Head>
