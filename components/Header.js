@@ -18,17 +18,15 @@ export default function Header() {
         </NextLink>
         <div className="grid grid-flow-col gap-8 text-base font-medium outline-none focus:outline-none">
           <NextLink href="/about">
-            <span className="cursor-pointer hover:text-indigo-600">About</span>
+            <span className="cursor-pointer hover:text-brand-600">About</span>
           </NextLink>
           <NextLink href="/past">
-            <span className="cursor-pointer hover:text-indigo-600">
+            <span className="cursor-pointer hover:text-brand-600">
               Past Events
             </span>
           </NextLink>
           <NextLink href="/contact">
-            <span className="cursor-pointer hover:text-indigo-600">
-              Contact
-            </span>
+            <span className="cursor-pointer hover:text-brand-600">Contact</span>
           </NextLink>
         </div>
       </div>

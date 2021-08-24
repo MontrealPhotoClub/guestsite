@@ -20,7 +20,8 @@ export default function PostCard({
           <div>
             <h1 className="text-3xl font-bold">{title}</h1>
             <p className="font-semibold">
-              <time dateTime={fdate}>{format(fdate, 'LLLL	d, yyyy')}</time> — {author}
+              <time dateTime={fdate}>{format(fdate, 'LLLL	d, yyyy')}</time> —{' '}
+              {author}
             </p>
           </div>
           <div>

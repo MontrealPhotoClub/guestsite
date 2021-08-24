@@ -13,7 +13,7 @@ export default function SignupCard() {
 
           <div className="relative lg:ml-10">
             <svg
-              className="absolute top-0 left-0 text-indigo-200 transform -translate-x-8 -translate-y-24 opacity-50 h-36 w-36"
+              className="absolute top-0 left-0 transform -translate-x-8 -translate-y-24 opacity-50 text-brand-200 h-36 w-36"
               stroke="currentColor"
               fill="none"
               viewBox="0 0 144 144"
@@ -46,7 +46,7 @@ export default function SignupCard() {
                     <div className="text-base font-medium text-gray-900">
                       Jp Valery
                     </div>
-                    <div className="text-base font-medium text-indigo-600">
+                    <div className="text-base font-medium text-brand-600">
                       Founder
                     </div>
                   </div>
