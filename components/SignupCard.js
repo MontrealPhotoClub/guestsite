@@ -3,9 +3,7 @@ import { useForm } from 'react-hook-form'
 
 import Success from './Success'
 import toast, { Toaster } from 'react-hot-toast'
-const notify = () =>
-  toast(<Success />, {})
-
+const notify = () => toast(<Success />, {})
 
 export default function Generic() {
   const { register, handleSubmit, errors } = useForm()
@@ -59,7 +57,7 @@ export default function Generic() {
               style: {
                 background: 'transparent',
                 border: '0px solid black',
-                boxShadow: 'none', 
+                boxShadow: 'none',
               },
             }}
           />

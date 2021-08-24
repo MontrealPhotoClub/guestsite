@@ -1,7 +1,7 @@
 ---
 title: 'Get in touch'
 excerpt: >
-  'Get in touch with the Montréal Photo Club'
+  Get in touch with the Montréal Photo Club
 coverImage: '/static/images/contact/hero.jpg'
 date: '2019-09-01T12:00:00.000Z'
 author:

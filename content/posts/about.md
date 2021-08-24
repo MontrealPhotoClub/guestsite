@@ -1,7 +1,7 @@
 ---
 title: 'About us'
 excerpt: >
-  'About the Montréal Photo Club'
+  About the Montréal Photo Club
 coverImage: '/static/images/about/hero.jpg'
 date: '2019-09-01T12:00:00.000Z'
 author:

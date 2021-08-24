@@ -1,8 +1,8 @@
 ---
 title: 'Photography & Commerce in The Age of Instagram'
-excerpt: 'We teamed up with Burst and Shopify to bring you two experts on Instagram and ecommerce.'
-coverImage: >
-  '/static/images/photography-commerce-instagram-keynote-burst-shopify/hero.jpg'
+excerpt: >
+  We teamed up with Burst and Shopify to bring you two experts on Instagram and ecommerce.
+coverImage: '/static/images/photography-commerce-instagram-keynote-burst-shopify/hero.jpg'
 date: '2019-06-27T12:00:00.000Z'
 author:
   name: Jp Valery
@@ -15,7 +15,7 @@ ogImage:
 
 Over the months we heard a lot of questions surrounding Instagram. We were also eager to host a more educational event. And last but not least we wanted to kickstart a project with our friends over at [Burst](https://burst.shopify.com)
 
->Burst is a free stock photo platform that is powered by Shopify [...] constantly uploading new photos and adding new categories to reflect current trends in ecommerce and retail.
+> Burst is a free stock photo platform that is powered by Shopify [...] constantly uploading new photos and adding new categories to reflect current trends in ecommerce and retail.
 
 We were humbled to have the support of Burst and Shopify Montréal for this event. And even more humbled to have two amazing speakers on stage that night.
 

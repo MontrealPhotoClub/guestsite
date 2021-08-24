@@ -1,4 +1,4 @@
-import { CheckCircleIcon } from "@heroicons/react/solid";
+import { CheckCircleIcon } from '@heroicons/react/solid'
 
 export default function Success() {
   return (
@@ -34,5 +34,5 @@ export default function Success() {
         </div>
       </div>
     </div>
-  );
+  )
 }

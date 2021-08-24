@@ -20,6 +20,11 @@ export default function Header() {
           <NextLink href="/about">
             <span className="cursor-pointer hover:text-indigo-600">About</span>
           </NextLink>
+          <NextLink href="/past">
+            <span className="cursor-pointer hover:text-indigo-600">
+              Past Events
+            </span>
+          </NextLink>
           <NextLink href="/contact">
             <span className="cursor-pointer hover:text-indigo-600">
               Contact

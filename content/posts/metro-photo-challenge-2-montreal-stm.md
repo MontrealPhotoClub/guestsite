@@ -1,7 +1,7 @@
 ---
 title: 'Métro Photo Challenge 2'
 excerpt: >
-  'On March 16th 2019, we gathered again for the second edition of the Metro Photo Challenge. With returning participants as well as newcomers, we had once again a blast.'
+  On March 16th 2019, we gathered again for the second edition of the Metro Photo Challenge. With returning participants as well as newcomers, we had once again a blast.
 coverImage: '/static/images/metro-photo-challenge-2-montreal-stm/hero.jpg'
 date: '2019-03-17T12:00:00.000Z'
 author:
