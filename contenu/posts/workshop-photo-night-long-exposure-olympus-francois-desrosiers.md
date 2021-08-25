@@ -1,7 +1,7 @@
 ---
-title: 'Night photography & Long exposure workshop'
+title: 'Atelier Photo de nuit & Longue exposition'
 excerpt: >
-  Montréal Photo Club is partnering with François Desrosiers, Technical Sales Executive from Olympus Canada to offer you a free workshop on night photography and long exposure techniques
+  Une présentation de François Desrosiers, Technical Sales Executive chez Olympus.
 coverImage: '/static/images/workshop-photo-night-long-exposure-olympus-francois-desrosiers/hero.jpg'
 date: '2019-09-11T12:00:00.000Z'
 author:
@@ -11,15 +11,15 @@ ogImage:
   url: '/static/images/workshop-photo-night-long-exposure-olympus-francois-desrosiers/hero.jpg'
 ---
 
-For this back-to-school, Montréal Photo Club is partnering with François Desrosiers, Technical Sales Executive from Olympus Canada to offer you a free workshop on night photography and long exposure techniques.
+Pour cette rentrée, le Montréal Photo Club s'associe avec François Desrosiers, Technical Sales Executive chez Olympus Canada pour vous offrir un atelier gratuit sur la photo de nuit et les techniques de longue exposition.
 
-Workshop will begin at 6:30PM in front of the Centre des Sciences de Montréal and will be moving across the Vieux Montréal.
+L'atelier commencera à 18:30 devant le Centre des Sciences de Montréal et se déplacera à travers le Vieux Montréal.
 
-We are honoured to have François Desrosiers as presenter for this event. François works since 1987 in photography including almost 30 at Lozeau as Director of Workshops, Speaker, and Instructor. He's still offering his formations alongside his activities at Olympus.
-He has done over 20 solo exhibitions and multiple books. He's a passionate self-taught always looking for new photographic experimentations.
+Nous sommes honorés d'avoir François Desrosiers comme présentateur pour cet événement. François travaille en photographie depuis 1987 dont notamment près de 30 ans chez Lozeau comme Directeur des Ateliers, Conférencier, et Formateur. Il continue présentement ses activités de formations en parallèle de son rôle de représentant des ventes chez Olympus Canada.
+Il a à son palmarès plus de 20 expositions solos et plusieurs livres. C'est un autodidacte passionné toujours à la recherche de nouvelles expérimentations photographiques.
 
-The workshop is free and open to all. In order to guarantee its quality, we have to limit the spots available and invite you to confirm your participation.
+L'atelier est gratuit et ouvert à tous. Afin de garantir sa qualité, nous devons limiter les places et vous invitons à confirmer votre participation.
 
-The Montréal Photo Club is a friendly photo club gathering photographers from all skills and horizons.
+Le Montréal Photo Club est un club photographique rassemblant des photographes de tous niveaux et horizons.
 
-[Sign up free on Facebook](https://www.facebook.com/events/929807624019194/)
+[Inscrivez-vous gratuitement à l'événement sur Facebook](https://www.facebook.com/events/929807624019194/)

@@ -1,7 +1,8 @@
 ---
-title: 'Photography & Commerce in The Age of Instagram'
+title: >
+  'Photography & Commerce dans l'Age d'Instagram'
 excerpt: >
-  We teamed up with Burst and Shopify to bring you two experts on Instagram and ecommerce.
+  Nous avons fait équipe avec Burst et Shopify pour offrir une présentation par deux experts sur Instagram et le ecommerce
 coverImage: '/static/images/photography-commerce-instagram-keynote-burst-shopify/hero.jpg'
 date: '2019-06-27T12:00:00.000Z'
 author:
@@ -11,28 +12,29 @@ ogImage:
   url: '/static/images/photography-commerce-instagram-keynote-burst-shopify/hero.jpg'
 ---
 
-## How has Instagram impacted the relationship between Photography and Commerce? Come hear 2 experts on the topic followed by a meet and greet
 
-Over the months we heard a lot of questions surrounding Instagram. We were also eager to host a more educational event. And last but not least we wanted to kickstart a project with our friends over at [Burst](https://burst.shopify.com)
+## Comment Instagram a impacté la relation entre la photographie et le commerce? Venez écouter 2 experts sur le sujet suivi par un temps d'échange
 
-> Burst is a free stock photo platform that is powered by Shopify [...] constantly uploading new photos and adding new categories to reflect current trends in ecommerce and retail.
+Nous avons entendu beaucoup de questions autour d'Instagram. Nous avions également envie d'organiser un événement plus éducationnel. Enfin, nous voulions démarrer un projet avec nos amis chez [Burst](https://burst.shopify.com).
 
-We were humbled to have the support of Burst and Shopify Montréal for this event. And even more humbled to have two amazing speakers on stage that night.
+>Burst is a free stock photo platform that is powered by Shopify [...] constantly uploading new photos and adding new categories to reflect current trends in ecommerce and retail.
 
-![Montréal Photo Club - Instagram Event @ Shopify](./images/burst-shopify-montreal-photo-club-instagram-1.JPG)
+Nous étions honorés d'avoir le support de Burst et Shopify Montréal pour cet événement. Et encore plus d'avoir deux conférenciers incroyables ce soir là.
 
-### Instagram & Direct-To-Consumer Companies by Ali Inay
+![Montréal Photo Club - Instagram Event @ Shopify](/static/images/burst-shopify-montreal-photo-club-instagram-1.JPG)
 
-Ali is a photographer and founder of [#mtlcafecrawl](https://www.instagram.com/mtlcafecrawl/). He shared his experience and insights on DTC brands and how they leverage their Instagram presence.
+### Instagram & Direct-To-Consumer Companies par Ali Inay
 
-![Montréal Photo Club - Instagram Event @ Shopify](./images/burst-shopify-montreal-photo-club-instagram-2.JPG)
+Ali est un photographe et fondateur de [#mtlcafecrawl](https://www.instagram.com/mtlcafecrawl/). Il a partagé son expérience et ses analyses sur les marques DTC et comment elles mettent à profit leur présence sur Instagram.
+
+![Montréal Photo Club - Instagram Event @ Shopify](/static/images/burst-shopify-montreal-photo-club-instagram-2.JPG)
 
 ### Instagram is part of the journey, not the destination by Vineeth Sampathkumar
 
-Vineeth is a Growth Manager at Shopify and a sneaker photographer. He shared his growth tactics and branding strategy tips and how to apply them to your Instagram account.
+Vineeth est un Growth Manager à Shopify et un photographe spécialisé en chaussures.Il a partagé ses tactiques de croissance et sa stratégie de marque, et comment les appliquer à la croissance d'un compte Instagram.
 
-![Montréal Photo Club - Instagram Event @ Shopify](./images/vnsnk-instagram-stranger-things-adidas-sneakers.jpg)
+![Montréal Photo Club - Instagram Event @ Shopify](/static/images/vnsnk-instagram-stranger-things-adidas-sneakers.jpg)
 
-_Intro and closing remarks were hosted by Jp Valery, founder of Montréal Photo Club and Katie Bowes, Operations Manager at Burst._
+_L'introduction et la clôture and closing remarks furent présentées par Jp Valery, fondateur du Montréal Photo Club et Katie Bowes, Operations Manager à Burst._
 
-Make sure you don't miss the next event, sign up for our club below 👇
+Assurez-vous de ne pas manquer le prochain événément, inscrivez vous gratuitement 👇

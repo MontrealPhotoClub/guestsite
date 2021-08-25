@@ -1,7 +1,7 @@
 ---
-title: 'Get in touch'
+title: 'Nous contacter'
 excerpt: >
-  Get in touch with the Montréal Photo Club
+  Contacter le Montréal Photo Club
 coverImage: '/static/images/contact/hero.jpg'
 date: '2019-09-01T12:00:00.000Z'
 author:
@@ -11,8 +11,9 @@ ogImage:
   url: '/static/images/contact/hero.jpg'
 ---
 
-# How to contact us
+# Comment nous contacter?
 
-The best way to reach us is by using **contact@montrealphoto.club**.
+La meilleure manière de nous joindre est à **contact@montrealphoto.club**.
 
-All emails will be answered and we're always happy to chat—so don't hesitate to write us!
+Tous les courriels recevront une réponse et nous sommes toujours ravis de jaser-alors n'hésitez pas!
+

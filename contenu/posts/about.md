@@ -1,7 +1,7 @@
 ---
-title: 'About us'
+title: 'À Propos'
 excerpt: >
-  About the Montréal Photo Club
+  À propos du Montréal Photo Club
 coverImage: '/static/images/about/hero.jpg'
 date: '2019-09-01T12:00:00.000Z'
 author:
@@ -11,21 +11,22 @@ ogImage:
   url: '/static/images/about/hero.jpg'
 ---
 
-# Our mission
+# Notre mission
 
-The Montréal Photo Club's mission is to bring people together around their shared passion for photography. We strive to be an inclusive group regardless of people's skills, equipment, language,... Everybody is welcome to join us and participate to our events.
+La mission du Montréal Photo Club est de rassembler les gens autour de leur passion commune pour la photographie. Nous avons à coeur d'être un groupe inclusif; quel que soit le niveau, l'équipement, la langue de nos membres. Tout le monde est bienvenu.
 
-# History
+# Histoire
 
-The Montréal Photo Club has been founded in 2019 by [Jp Valery](/authors/jp-valery). After a couple of years as the official Unsplash Host for Montréal, he decided to build an organization that would be bigger than himself and something that could be transmitted one day.
+Le Montréal Photo Club a été fondé en 2019 par [Jp Valery](/authors/jp-valery). Après quelques années comme Unsplash Host officiel pour Montréal, il a décidé de bâtir une organisation qui serait plus grande que lui et qui pourrait ultimement être transmise un jour.
 
-# Partners & Sponsors
+# Partenaires & Sponsors
 
-We're thankful and humbled to count the following companies and entities as our partners and sponsors:<br />
+Nous sommes reconnaissants et honorés de compter les entreprises et entités suivantes parmi nos partenaires et sponsors :<br />
 Unsplash | Burst | Shopify | Olympus
 
-## Would you like to be our next patron?
+## Voudriez-vous être notre prochain mécène?
 
-We're always looking for sponsors to support our events in a meaningful way that benefits everyone (you, our members, and the club).
+Nous sommes toujours à la recherche de sponsors pour supporter nos événéments d'une manière qui bénéficie à tous (vous, nos membres, et le club).
 
-Please get in touch with [this form](https://jpvalery.typeform.com/to/uxN4cg) and we'll get back to you as soon as possible.
+Contactez nous avec [ce formulaire](https://jpvalery.typeform.com/to/ZVZGwY) et nous vous reviendrons dès que possible.
+
