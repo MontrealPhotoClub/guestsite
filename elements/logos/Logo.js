@@ -8,7 +8,7 @@ export default function Logo() {
       viewBox="0 0 277.246 34.211"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="hidden sm:inline-flex"
+      className="hidden md:inline-flex"
     >
       <g clipPath="url(#clip0)">
         <path
