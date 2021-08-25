@@ -1,7 +1,15 @@
 import { getEventPosts } from '../lib/api'
 import PostCard from '../components/PostCard'
 
-export default function Index({ allPosts }) {
+import { useRouter } from 'next/router'
+
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+const Past = ({ allPosts }) => {
+  const router = useRouter()
+  const { t } = useTranslation('common')
+
   return (
     <main className="grid grid-flow-row gap-12 justify-items-center">
       {allPosts.map((post) => (
@@ -18,7 +26,6 @@ export default function Index({ allPosts }) {
   )
 }
 
-export async function getStaticProps() {
   const allPosts = getEventPosts([
     'title',
     'date',
@@ -28,7 +35,12 @@ export async function getStaticProps() {
     'excerpt',
   ])
 
-  return {
-    props: { allPosts },
-  }
-}
+export const getStaticProps = async ({ locale }) => ({
+  
+  props: {
+    allPosts,
+    ...(await serverSideTranslations(locale, ['common'])),
+  },
+})
+
+export default Past
