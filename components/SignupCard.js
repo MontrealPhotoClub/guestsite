@@ -19,16 +19,16 @@ export default function Generic() {
   }
 
   return (
-    <div className="py-12 rounded-lg bg-brand-700 md:px-12 lg:px-16 xl:flex xl:items-center">
-      <div className="xl:w-0 xl:flex-1">
-        <h2 className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
+    <div className="grid items-center justify-center grid-flow-row gap-8 p-6 rounded-lg md:justify-between bg-brand-700 md:p-8 lg:p-12 md:grid-flow-col">
+      <div>
+        <h2 className="text-4xl font-extrabold tracking-tight text-center text-white sm:text-left">
           Make sure you don't miss out our future events.
         </h2>
-        <p className="max-w-3xl mt-3 text-lg leading-6 text-brand-200">
+        <p className="max-w-3xl mt-3 text-2xl leading-6 text-center sm:text-left text-brand-200">
           Join now for free
         </p>
       </div>
-      <div className="mt-8 sm:w-full sm:max-w-md xl:mt-0 xl:ml-8">
+      <div className="mt-2">
         <form className="sm:flex" onSubmit={handleSubmit(onSubmit)}>
           <label for="email" className="sr-only">
             your@email.com

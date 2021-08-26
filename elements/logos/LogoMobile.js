@@ -8,7 +8,7 @@ export default function LogoMobile() {
       viewBox="0 0 34.207 34.211"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="inline-flex sm:hidden"
+      className="inline-flex md:hidden"
     >
       <g>
         <path
