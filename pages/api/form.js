@@ -9,7 +9,7 @@ export default async (req, res) => {
           Authorization: `Basic ${process.env.NEXT_PUBLIC_CIO_TRACK_KEY}`,
         },
         body: JSON.stringify({
-          data: { email: `${req.body.email}` },
+          data: { email: `${req.body.email}`, language: 'en' },
         }),
       }
     )
