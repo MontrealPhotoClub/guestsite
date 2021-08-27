@@ -5,10 +5,37 @@ import Success from './Success'
 import toast, { Toaster } from 'react-hot-toast'
 const notify = () => toast(<Success />, {})
 
-export default function Generic() {
+import HCaptcha from '@hcaptcha/react-hcaptcha'
+
+export default function SignupCard() {
   const { register, handleSubmit, errors } = useForm()
 
+  // hcaptcha
+  const [token, setToken] = useState(null)
+  const [email, setEmail] = useState('')
+  const captchaRef = useRef(null)
+
+  const onExpire = () => {
+    console.log('hCaptcha Token Expired')
+  }
+
+  const onError = (err) => {
+    console.log(`hCaptcha Error: ${err}`)
+  }
+
+  useEffect(() => {
+    if (token) {
+      // Token is set, can submit here
+      console.log(`User Email: ${email}`)
+      console.log(`hCaptcha Token: ${token}`)
+    }
+  }, [token, email])
+
+  // submit form
+
   const onSubmit = async (data) => {
+    captchaRef.current.execute()
+
     const res = await fetch('/api/form', {
       method: 'POST',
       headers: {
@@ -42,6 +69,7 @@ export default function Generic() {
             placeholder="Enter your email"
             aria-describedby="email-description"
             ref={register({ required: true, maxLength: 80 })}
+            onChange={(evt) => setEmail(evt.target.value)}
           />
           <button
             onClick={notify}
@@ -50,6 +78,15 @@ export default function Generic() {
           >
             Join now
           </button>
+          <HCaptcha
+            // This is testing sitekey, will autopass
+            // Make sure to replace
+            sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY}
+            onVerify={setToken}
+            onError={onError}
+            onExpire={onExpire}
+            ref={captchaRef}
+          />
           <Toaster
             toastOptions={{
               className: 'rounded-md bg-green-50 p-4',
