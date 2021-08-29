@@ -34,15 +34,18 @@ const Post = ({ post }) => {
 
 
 export async function getStaticProps({ params, locale }) {
-  const post = getPostBySlug(params.slug, [
-    'title',
-    'date',
-    'slug',
-    'author',
-    'content',
-    'ogImage',
-    'coverImage',
-  ])
+  const post = getPostBySlug({
+    locale,
+    slug: params.slug, fields: [
+      'title',
+      'date',
+      'slug',
+      'author',
+      'content',
+      'ogImage',
+      'coverImage',
+    ]
+  })
   const content = await markdownToHtml(post.content || '')
 
   return {
@@ -56,18 +59,34 @@ export async function getStaticProps({ params, locale }) {
   }
 }
 
+/**
+ * @type {import('next').GetStaticPathsContext}
+ *
+ * @param {Object} params
+ * @param {string[]} params.locales
+ * @param {string} params.defaultLocale
+ **/
+export async function getStaticPaths({locales}) {
+  const posts = []
 
-export async function getStaticPaths() {
-  const posts = getAllPosts(['slug'])
+  for (const locale of locales) {
+    posts.push(...getAllPosts({ locale, fields: ['slug'] }).map((post) => {
+      post.locale = locale
+      return post
+    }))
+  }
+
+  const paths = posts.map((post) => {
+    return {
+      params: {
+        slug: post.slug,
+      },
+      locale: post.locale
+    }
+  });
 
   return {
-    paths: posts.map((post) => {
-      return {
-        params: {
-          slug: post.slug,
-        },
-      }
-    }),
+    paths,
     fallback: false,
   }
 }

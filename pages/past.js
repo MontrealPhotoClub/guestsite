@@ -12,8 +12,9 @@ const Past = ({ allPosts }) => {
 
   return (
     <main className="grid grid-flow-row gap-12 justify-items-center">
-      {allPosts.map((post) => (
+      {allPosts.map((post, index) => (
         <PostCard
+          key={index}
           title={post.title}
           date={post.date}
           slug={post.slug}
@@ -26,21 +27,26 @@ const Past = ({ allPosts }) => {
   )
 }
 
-  const allPosts = getEventPosts([
-    'title',
-    'date',
-    'slug',
-    'author',
-    'coverImage',
-    'excerpt',
-  ])
+export const getStaticProps = async ({ locale }) => {
+  const allPosts = getEventPosts({
+    locale,
+    fields: [
+      'title',
+      'date',
+      'slug',
+      'author',
+      'coverImage',
+      'excerpt',
+    ]
+  })
 
-export const getStaticProps = async ({ locale }) => ({
-  
-  props: {
-    allPosts,
-    ...(await serverSideTranslations(locale, ['common'])),
-  },
-})
+  return ({
+
+    props: {
+      allPosts,
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  })
+}
 
 export default Past
