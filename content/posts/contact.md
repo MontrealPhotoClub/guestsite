@@ -15,4 +15,4 @@ ogImage:
 
 The best way to reach us is by using **contact@montrealphoto.club**.
 
-All emails will be answered and we're always happy to chat—so don't hesitate to write us!
+All emails will be answered and we're always happy to chat—don't hesitate to write us!

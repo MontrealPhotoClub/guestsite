@@ -61,7 +61,7 @@ export default function SignupCard({
       <div className="mt-2">
         <form className="sm:flex" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col">
-            <div className="inline-flex">
+            <div className="grid grid-flow-row sm:grid-flow-col">
               <label htmlFor="email" className="sr-only">
                 your@email.com
               </label>
@@ -71,8 +71,8 @@ export default function SignupCard({
                 type="email"
                 autoComplete="email"
                 className="w-full px-5 py-3 placeholder-gray-500 border-white rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-700 focus:ring-white"
-                placeholder="Enter your email"
-                aria-describedby="email-description"
+                placeholder={signupPlaceholder}
+                aria-describedby={signupPlaceholder}
                 ref={register({ required: true, maxLength: 80 })}
                 value={email}
                 onChange={(evt) => setEmail(evt.target.value)}
