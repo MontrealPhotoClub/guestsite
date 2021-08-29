@@ -12,31 +12,31 @@ const Post = ({ post }) => {
   const router = useRouter()
   const { t } = useTranslation('common')
 
-   return (
-     <div>
-       <main className="max-w-4xl mx-auto">
-         <h1 className="text-5xl font-semibold">{post.title}</h1>
-         <img className="my-6" src={post.ogImage.url} alt="" />
-         <PostBody content={post.content} />
-       </main>
-       <section className="mt-12">
-         <SignupCard
-           signupHeadline={t('signupHeadline')}
-           signupSubline={t('signupSubline')}
-           signupPlaceholder={t('signupPlaceholder')}
-           signupCta={t('signupCta')}
-           signupPrivacy={t('signupPrivacy')}
-         />
-       </section>
-     </div>
-   )
+  return (
+    <div>
+      <main className="max-w-4xl mx-auto">
+        <h1 className="text-5xl font-semibold">{post.title}</h1>
+        <img className="my-6" src={post.ogImage.url} alt="" />
+        <PostBody content={post.content} />
+      </main>
+      <section className="mt-12">
+        <SignupCard
+          signupHeadline={t('signupHeadline')}
+          signupSubline={t('signupSubline')}
+          signupPlaceholder={t('signupPlaceholder')}
+          signupCta={t('signupCta')}
+          signupPrivacy={t('signupPrivacy')}
+        />
+      </section>
+    </div>
+  )
 }
-
 
 export async function getStaticProps({ params, locale }) {
   const post = getPostBySlug({
     locale,
-    slug: params.slug, fields: [
+    slug: params.slug,
+    fields: [
       'title',
       'date',
       'slug',
@@ -44,7 +44,7 @@ export async function getStaticProps({ params, locale }) {
       'content',
       'ogImage',
       'coverImage',
-    ]
+    ],
   })
   const content = await markdownToHtml(post.content || '')
 
@@ -66,14 +66,16 @@ export async function getStaticProps({ params, locale }) {
  * @param {string[]} params.locales
  * @param {string} params.defaultLocale
  **/
-export async function getStaticPaths({locales}) {
+export async function getStaticPaths({ locales }) {
   const posts = []
 
   for (const locale of locales) {
-    posts.push(...getAllPosts({ locale, fields: ['slug'] }).map((post) => {
-      post.locale = locale
-      return post
-    }))
+    posts.push(
+      ...getAllPosts({ locale, fields: ['slug'] }).map((post) => {
+        post.locale = locale
+        return post
+      })
+    )
   }
 
   const paths = posts.map((post) => {
@@ -81,15 +83,14 @@ export async function getStaticPaths({locales}) {
       params: {
         slug: post.slug,
       },
-      locale: post.locale
+      locale: post.locale,
     }
-  });
+  })
 
   return {
     paths,
     fallback: false,
   }
 }
-
 
 export default Post

@@ -12,12 +12,11 @@ ogImage:
   url: '/static/images/photography-commerce-instagram-keynote-burst-shopify/hero.jpg'
 ---
 
-
 ## Comment Instagram a impacté la relation entre la photographie et le commerce? Venez écouter 2 experts sur le sujet suivi par un temps d'échange
 
 Nous avons entendu beaucoup de questions autour d'Instagram. Nous avions également envie d'organiser un événement plus éducationnel. Enfin, nous voulions démarrer un projet avec nos amis chez [Burst](https://burst.shopify.com).
 
->Burst is a free stock photo platform that is powered by Shopify [...] constantly uploading new photos and adding new categories to reflect current trends in ecommerce and retail.
+> Burst is a free stock photo platform that is powered by Shopify [...] constantly uploading new photos and adding new categories to reflect current trends in ecommerce and retail.
 
 Nous étions honorés d'avoir le support de Burst et Shopify Montréal pour cet événement. Et encore plus d'avoir deux conférenciers incroyables ce soir là.
 

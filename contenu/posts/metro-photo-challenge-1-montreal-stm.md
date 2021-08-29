@@ -11,7 +11,6 @@ ogImage:
   url: '/static/images/metro-photo-challenge-1-montreal-stm/hero.jpg'
 ---
 
-
 Après les marches photos avec Unsplash et basé sur la rétroaction reçue des précédents événements, nous avons décidé d'organiser notre événement suivant d'une manière différente.
 
 ![Métro Photo Challenge - A picture from one of the participants](/static/images/metro-photo-challenge-1-montreal-stm/metro-photo-challenge-november-2018-montreal-stm-participant-6.jpg)

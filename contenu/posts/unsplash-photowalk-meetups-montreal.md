@@ -38,4 +38,3 @@ Alors que tout le monde atteignait son seuil de tolérance au froid, nous nous s
 ## Unsplash Meetup @ Crew Café - Montréal September 2018
 
 Nous avons également organisé une petite rencontre au Crew Collective and Café où nous avons été en mesure de jaser et socialiser de manière plus tranquille que lors d'une marche.
-

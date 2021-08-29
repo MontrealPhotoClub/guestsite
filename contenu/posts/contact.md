@@ -16,4 +16,3 @@ ogImage:
 La meilleure manière de nous joindre est à **contact@montrealphoto.club**.
 
 Tous les courriels recevront une réponse et nous sommes toujours ravis de jaser-alors n'hésitez pas!
-

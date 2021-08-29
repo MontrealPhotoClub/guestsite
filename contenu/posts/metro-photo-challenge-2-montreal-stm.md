@@ -25,5 +25,4 @@ Pour ne pas manquer la prochaine édition, inscrivez vous avec le formulaire ci-
 
 ![Métro Photo Challenge - A picture from one of the participants](/static/images/metro-photo-challenge-2-montreal-stm/metro-photo-challenge-march-2019-montreal-stm-participant-3.jpg)
 
-
 ![Métro Photo Challenge - A picture from one of the participants](/static/images/metro-photo-challenge-2-montreal-stm/metro-photo-challenge-march-2019-montreal-stm-participant-4.jpg)

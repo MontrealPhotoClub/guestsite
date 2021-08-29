@@ -6,7 +6,6 @@ import toast, { Toaster } from 'react-hot-toast'
 
 import HCaptcha from '@hcaptcha/react-hcaptcha'
 
-
 export default function SignupCard({
   signupHeadline,
   signupSubline,
@@ -14,7 +13,6 @@ export default function SignupCard({
   signupCta,
   signupPrivacy,
 }) {
-
   const { register, handleSubmit, errors } = useForm()
 
   // hcaptcha
@@ -111,7 +109,9 @@ export default function SignupCard({
             }}
           />
         </form>
-        <p className="mt-3 text-xs text-center md:text-sm text-brand-200">{signupPrivacy}</p>
+        <p className="mt-3 text-xs text-center md:text-sm text-brand-200">
+          {signupPrivacy}
+        </p>
       </div>
     </div>
   )

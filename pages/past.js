@@ -30,23 +30,15 @@ const Past = ({ allPosts }) => {
 export const getStaticProps = async ({ locale }) => {
   const allPosts = getEventPosts({
     locale,
-    fields: [
-      'title',
-      'date',
-      'slug',
-      'author',
-      'coverImage',
-      'excerpt',
-    ]
+    fields: ['title', 'date', 'slug', 'author', 'coverImage', 'excerpt'],
   })
 
-  return ({
-
+  return {
     props: {
       allPosts,
       ...(await serverSideTranslations(locale, ['common'])),
     },
-  })
+  }
 }
 
 export default Past

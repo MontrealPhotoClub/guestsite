@@ -29,4 +29,3 @@ Unsplash | Burst | Shopify | Olympus
 Nous sommes toujours à la recherche de sponsors pour supporter nos événéments d'une manière qui bénéficie à tous (vous, nos membres, et le club).
 
 Contactez nous avec [ce formulaire](https://jpvalery.typeform.com/to/ZVZGwY) et nous vous reviendrons dès que possible.
-
