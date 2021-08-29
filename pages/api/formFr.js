@@ -1,7 +1,7 @@
 export default async (req, res) => {
   if (req.method === 'POST') {
     await fetch(
-      'https://track.customer.io/api/v1/forms/next-signup-en/submit',
+      'https://track.customer.io/api/v1/forms/next-signup-fr/submit',
       {
         method: 'POST',
         headers: {
