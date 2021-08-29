@@ -1,40 +1,51 @@
 import { useRouter } from 'next/router'
-import ErrorPage from 'next/error'
 import { getPostBySlug, getAllPosts } from '../lib/api'
 import markdownToHtml from '../lib/markdownToHtml'
 
 import PostBody from '../components/PostBody'
 import SignupCard from '../components/SignupCard'
 
-export default function Post({ post, morePosts, preview }) {
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+const Post = ({ post }) => {
   const router = useRouter()
-  if (!router.isFallback && !post?.slug) {
-    return <ErrorPage statusCode={404} />
-  }
-  return (
-    <div>
-      <main className="max-w-4xl mx-auto">
-        <h1 className="text-5xl font-semibold">{post.title}</h1>
-        <img className="my-6" src={post.ogImage.url} alt="" />
-        <PostBody content={post.content} />
-      </main>
-      <section className="mt-12">
-        <SignupCard />
-      </section>
-    </div>
-  )
+  const { t } = useTranslation('common')
+
+   return (
+     <div>
+       <main className="max-w-4xl mx-auto">
+         <h1 className="text-5xl font-semibold">{post.title}</h1>
+         <img className="my-6" src={post.ogImage.url} alt="" />
+         <PostBody content={post.content} />
+       </main>
+       <section className="mt-12">
+         <SignupCard
+           signupHeadline={t('signupHeadline')}
+           signupSubline={t('signupSubline')}
+           signupPlaceholder={t('signupPlaceholder')}
+           signupCta={t('signupCta')}
+           signupPrivacy={t('signupPrivacy')}
+         />
+       </section>
+     </div>
+   )
 }
 
-export async function getStaticProps({ params }) {
-  const post = getPostBySlug(params.slug, [
-    'title',
-    'date',
-    'slug',
-    'author',
-    'content',
-    'ogImage',
-    'coverImage',
-  ])
+
+export async function getStaticProps({ params, locale }) {
+  const post = getPostBySlug({
+    locale,
+    slug: params.slug, fields: [
+      'title',
+      'date',
+      'slug',
+      'author',
+      'content',
+      'ogImage',
+      'coverImage',
+    ]
+  })
   const content = await markdownToHtml(post.content || '')
 
   return {
@@ -43,21 +54,42 @@ export async function getStaticProps({ params }) {
         ...post,
         content,
       },
+      ...(await serverSideTranslations(locale, ['common'])),
     },
   }
 }
 
-export async function getStaticPaths() {
-  const posts = getAllPosts(['slug'])
+/**
+ * @type {import('next').GetStaticPathsContext}
+ *
+ * @param {Object} params
+ * @param {string[]} params.locales
+ * @param {string} params.defaultLocale
+ **/
+export async function getStaticPaths({locales}) {
+  const posts = []
+
+  for (const locale of locales) {
+    posts.push(...getAllPosts({ locale, fields: ['slug'] }).map((post) => {
+      post.locale = locale
+      return post
+    }))
+  }
+
+  const paths = posts.map((post) => {
+    return {
+      params: {
+        slug: post.slug,
+      },
+      locale: post.locale
+    }
+  });
 
   return {
-    paths: posts.map((post) => {
-      return {
-        params: {
-          slug: post.slug,
-        },
-      }
-    }),
+    paths,
     fallback: false,
   }
 }
+
+
+export default Post
