@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form'
 import Success from './Success'
 import toast, { Toaster } from 'react-hot-toast'
 
+import HCaptcha from '@hcaptcha/react-hcaptcha'
+
 
 export default function SignupCard({
   signupHeadline,
@@ -12,10 +14,6 @@ export default function SignupCard({
   signupCta,
   signupPrivacy,
 }) {
-
-import HCaptcha from '@hcaptcha/react-hcaptcha'
-
-export default function SignupCard() {
 
   const { register, handleSubmit, errors } = useForm()
 
@@ -66,14 +64,14 @@ export default function SignupCard() {
         <form className="sm:flex" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col">
             <div className="inline-flex">
-              <label for="email" className="sr-only">
+              <label htmlFor="email" className="sr-only">
                 your@email.com
               </label>
               <input
                 id="email"
                 name="email"
                 type="email"
-                autocomplete="email"
+                autoComplete="email"
                 className="w-full px-5 py-3 placeholder-gray-500 border-white rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-700 focus:ring-white"
                 placeholder="Enter your email"
                 aria-describedby="email-description"
