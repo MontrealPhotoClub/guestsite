@@ -8,27 +8,40 @@ import SignupCard from '../components/SignupCard'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+import { NextSeo } from 'next-seo'
+
 const Post = ({ post }) => {
   const router = useRouter()
   const { t } = useTranslation('common')
 
   return (
-    <div>
-      <main className="max-w-4xl mx-auto">
-        <h1 className="text-5xl font-semibold">{post.title}</h1>
-        <img className="my-6" src={post.ogImage.url} alt="" />
-        <PostBody content={post.content} />
-      </main>
-      <section className="mt-12">
-        <SignupCard
-          signupHeadline={t('signupHeadline')}
-          signupSubline={t('signupSubline')}
-          signupPlaceholder={t('signupPlaceholder')}
-          signupCta={t('signupCta')}
-          signupPrivacy={t('signupPrivacy')}
-        />
-      </section>
-    </div>
+    <>
+      <NextSeo
+        title={post.title}
+        description={post.excerpt}
+        openGraph={{
+          title: `${post.title}`,
+          description: `${post.excerpt}`,
+          images: [{ url: `https://montrealphoto.club/${post.ogImage.url}` }],
+        }}
+      />
+      <div>
+        <main className="max-w-4xl mx-auto">
+          <h1 className="text-5xl font-semibold">{post.title}</h1>
+          <img className="my-6" src={post.ogImage.url} alt="" />
+          <PostBody content={post.content} />
+        </main>
+        <section className="mt-12">
+          <SignupCard
+            signupHeadline={t('signupHeadline')}
+            signupSubline={t('signupSubline')}
+            signupPlaceholder={t('signupPlaceholder')}
+            signupCta={t('signupCta')}
+            signupPrivacy={t('signupPrivacy')}
+          />
+        </section>
+      </div>
+    </>
   )
 }
 

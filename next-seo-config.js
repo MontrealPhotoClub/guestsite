@@ -3,8 +3,10 @@ const description =
   'A friendly gathering of photographers in Montréal from all horizons and skills.'
 
 const SEO = {
-  title,
-  description,
+  titleTemplate: '%s | Montréal Photo Club 📷',
+  defaultTitle: title,
+  description: description,
+  canonical: siteUrl,
   canonical: 'https://montrealphoto.club',
   openGraph: {
     type: 'website',
@@ -14,13 +16,14 @@ const SEO = {
     description,
     images: [
       {
-        url: 'https://montrealphoto.club/static/images/og-banner.jpg',
+        url:
+          'https://og.jpvalery.me/**Montr%C3%A9al%20Photo%20Club**.png?theme=dotclub&md=1&fontSize=100px',
         alt: title,
       },
     ],
   },
   twitter: {
-    handle: '@@mtlphotoclub',
+    handle: '@mtlphotoclub',
     site: 'montrealphoto.club',
     cardType: 'summary_large_image',
   },
