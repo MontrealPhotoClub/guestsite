@@ -6,7 +6,6 @@ const SEO = {
   titleTemplate: '%s | Montréal Photo Club 📷',
   defaultTitle: title,
   description: description,
-  canonical: siteUrl,
   canonical: 'https://montrealphoto.club',
   openGraph: {
     type: 'website',
