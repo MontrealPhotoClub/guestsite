@@ -24,6 +24,7 @@ const Homepage = () => {
             signupPlaceholder={t('signupPlaceholder')}
             signupCta={t('signupCta')}
             signupPrivacy={t('signupPrivacy')}
+            signupLocale={t('signupLocale')}
           />
         </div>
         <FounderWord
