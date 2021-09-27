@@ -12,6 +12,7 @@ export default function SignupCard({
   signupPlaceholder,
   signupCta,
   signupPrivacy,
+  signupLocale,
 }) {
   const { register, handleSubmit, errors } = useForm()
 
@@ -32,13 +33,23 @@ export default function SignupCard({
     if (token) {
       const data = { email: `${email}` }
 
-      fetch('/api/form', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
+      if (signupLocale === 'fr') {
+        fetch('/api/formFr', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        })
+      } else {
+        fetch('/api/form', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        })
+      }
 
       toast(<Success />, {})
     }
