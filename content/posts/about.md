@@ -17,7 +17,7 @@ The Montréal Photo Club's mission is to bring people together around their shar
 
 # History
 
-The Montréal Photo Club has been founded in 2019 by [Jp Valery](/authors/jp-valery). After a couple of years as the official Unsplash Host for Montréal, he decided to build an organization that would be bigger than himself and something that could be transmitted one day.
+The Montréal Photo Club has been founded in 2019 by [Jp Valery](https://jpvalery.photo). After a couple of years as the official Unsplash Host for Montréal, he decided to build an organization that would be bigger than himself and something that could be transmitted one day.
 
 # Partners & Sponsors
 
