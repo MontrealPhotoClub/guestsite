@@ -23,7 +23,7 @@ export default function Header({ menuAbout, menuPast, menuContact, menuLogin }) 
             </div>
           </NextLink>
         </div>
-        <div className="grid grid-flow-col gap-4 text-sm font-medium outline-none md:text-base md:gap-8 focus:outline-none">
+        <div className="grid items-center grid-flow-col gap-4 text-sm font-medium outline-none md:text-base md:gap-8 focus:outline-none">
           <NextLink href="/about">
             <span className="cursor-pointer hover:text-brand-600">
               {menuAbout}
@@ -39,7 +39,7 @@ export default function Header({ menuAbout, menuPast, menuContact, menuLogin }) 
               {menuContact}
             </span>
           </NextLink>
-          <div className="grid grid-flow-col gap-2">
+          <div className="grid items-center grid-flow-col gap-2">
             <a href={menuLogin}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
