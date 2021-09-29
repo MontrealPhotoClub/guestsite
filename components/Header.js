@@ -3,9 +3,9 @@ import { useRouter } from 'next/router'
 
 import Logo from '../elements/logos/Logo'
 import LogoMobile from '../elements/logos/LogoMobile'
-import { TranslateIcon } from '@heroicons/react/solid'
+import { TranslateIcon, LoginIcon } from '@heroicons/react/solid'
 
-export default function Header({ menuAbout, menuPast, menuContact }) {
+export default function Header({ menuAbout, menuPast, menuContact, menuLogin }) {
   const router = useRouter()
 
   return (
@@ -39,9 +39,27 @@ export default function Header({ menuAbout, menuPast, menuContact }) {
               {menuContact}
             </span>
           </NextLink>
-          <NextLink href="/" locale={router.locale === 'en' ? 'fr' : 'en'}>
-            <TranslateIcon className="w-5 h-5 cursor-pointer" />
-          </NextLink>
+          <div className="grid grid-flow-col gap-2">
+            <a href={menuLogin}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6 cursor-pointer hover:text-brand-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                />
+              </svg>
+            </a>
+            <NextLink href="/" locale={router.locale === 'en' ? 'fr' : 'en'}>
+              <TranslateIcon className="w-6 h-6 cursor-pointer hover:text-brand-600" />
+            </NextLink>
+          </div>
         </div>
       </div>
     </div>

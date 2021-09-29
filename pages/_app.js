@@ -31,6 +31,7 @@ const MyApp = ({ Component, pageProps }) => {
           menuAbout={t('menuAbout')}
           menuPast={t('menuPast')}
           menuContact={t('menuContact')}
+          menuLogin={t('menuLogin')}
         />
         <div className="py-12 mx-auto">
           <Component {...pageProps} />
