@@ -5,7 +5,12 @@ import Logo from '../elements/logos/Logo'
 import LogoMobile from '../elements/logos/LogoMobile'
 import { TranslateIcon, LoginIcon } from '@heroicons/react/solid'
 
-export default function Header({ menuAbout, menuPast, menuContact, menuLogin }) {
+export default function Header({
+  menuAbout,
+  menuPast,
+  menuContact,
+  menuLogin,
+}) {
   const router = useRouter()
 
   return (
