@@ -24,7 +24,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 md:mt-0 md:order-1">
           <p className="text-sm text-center text-gray-500">
-            &copy; 2018-2021 Montréal Photo Club
+            &copy; 2018-2022 Montréal Photo Club
           </p>
         </div>
       </div>
