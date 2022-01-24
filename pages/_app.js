@@ -26,14 +26,14 @@ const MyApp = ({ Component, pageProps }) => {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
       <DefaultSeo {...SEO} />
-      <div className="max-w-6xl px-6 pb-6 mx-auto">
+      <div className="mx-auto max-w-6xl px-6 pb-6">
         <Header
           menuAbout={t('menuAbout')}
           menuPast={t('menuPast')}
           menuContact={t('menuContact')}
           menuLogin={t('menuLogin')}
         />
-        <div className="py-12 mx-auto">
+        <div className="mx-auto py-12">
           <Component {...pageProps} />
         </div>
         <Footer />

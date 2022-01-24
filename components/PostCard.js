@@ -12,7 +12,7 @@ export default function PostCard({
   const fdate = parseISO(date)
   return (
     <NextLink href={slug}>
-      <div className="grid items-stretch max-w-4xl grid-flow-col p-4 border rounded cursor-pointer gap-x-8">
+      <div className="grid max-w-4xl cursor-pointer grid-flow-col items-stretch gap-x-8 rounded border p-4">
         <div>
           <img src={coverImage} className="rounded" />
         </div>

@@ -26,7 +26,7 @@ const Post = ({ post }) => {
         }}
       />
       <div>
-        <main className="max-w-4xl mx-auto">
+        <main className="mx-auto max-w-4xl">
           <h1 className="text-5xl font-semibold">{post.title}</h1>
           <img className="my-6" src={post.ogImage.url} alt="" />
           <PostBody content={post.content} />

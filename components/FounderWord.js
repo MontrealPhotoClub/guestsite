@@ -1,11 +1,11 @@
 export default function SignupCard({ founderQuote, founderTitle }) {
   return (
     <section className="overflow-hidden bg-white">
-      <div className="relative px-4 pt-20 pb-12 mx-auto max-w-7xl sm:px-6 lg:px-8 lg:py-20">
+      <div className="relative mx-auto max-w-7xl px-4 pt-20 pb-12 sm:px-6 lg:px-8 lg:py-20">
         <div className="relative lg:flex lg:items-center">
           <div className="hidden lg:block lg:flex-shrink-0">
             <img
-              className="w-64 h-64 rounded-full xl:h-80 xl:w-80"
+              className="h-64 w-64 rounded-full xl:h-80 xl:w-80"
               src="/static/avatars/jpvalery.jpg"
               alt=""
             />
@@ -13,7 +13,7 @@ export default function SignupCard({ founderQuote, founderTitle }) {
 
           <div className="relative lg:ml-10">
             <svg
-              className="absolute top-0 left-0 transform -translate-x-8 -translate-y-24 opacity-50 text-brand-200 h-36 w-36"
+              className="absolute top-0 left-0 h-36 w-36 -translate-x-8 -translate-y-24 transform text-brand-200 opacity-50"
               stroke="currentColor"
               fill="none"
               viewBox="0 0 144 144"
@@ -32,7 +32,7 @@ export default function SignupCard({ founderQuote, founderTitle }) {
                 <div className="flex">
                   <div className="flex-shrink-0 lg:hidden">
                     <img
-                      className="w-12 h-12 rounded-full"
+                      className="h-12 w-12 rounded-full"
                       src="/static/avatars/jpvalery.jpg"
                       alt=""
                     />

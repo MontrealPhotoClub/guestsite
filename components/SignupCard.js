@@ -60,12 +60,12 @@ export default function SignupCard({
   }
 
   return (
-    <div className="grid items-center justify-center grid-flow-row gap-8 p-6 rounded-lg md:justify-between bg-brand-700 md:p-8 lg:p-12 md:grid-flow-col">
+    <div className="grid grid-flow-row items-center justify-center gap-8 rounded-lg bg-brand-700 p-6 md:grid-flow-col md:justify-between md:p-8 lg:p-12">
       <div>
-        <h2 className="text-4xl font-extrabold tracking-tight text-center text-white sm:text-left">
+        <h2 className="text-center text-4xl font-extrabold tracking-tight text-white sm:text-left">
           {signupHeadline}
         </h2>
-        <p className="max-w-3xl mt-3 text-2xl leading-6 text-center sm:text-left text-brand-200">
+        <p className="mt-3 max-w-3xl text-center text-2xl leading-6 text-brand-200 sm:text-left">
           {signupSubline}
         </p>
       </div>
@@ -81,7 +81,7 @@ export default function SignupCard({
                 name="email"
                 type="email"
                 autoComplete="email"
-                className="w-full px-5 py-3 placeholder-gray-500 border-white rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-700 focus:ring-white"
+                className="w-full rounded-md border-white px-5 py-3 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-700"
                 placeholder={signupPlaceholder}
                 aria-describedby={signupPlaceholder}
                 ref={register({ required: true, maxLength: 80 })}
@@ -90,7 +90,7 @@ export default function SignupCard({
               />
               <button
                 type="submit"
-                className="flex items-center justify-center w-full px-5 py-3 mt-3 text-base font-medium text-white border border-transparent rounded-md shadow bg-brand-500 hover:bg-brand-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-700 focus:ring-white sm:mt-0 sm:ml-3 sm:w-auto sm:flex-shrink-0"
+                className="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-brand-500 px-5 py-3 text-base font-medium text-white shadow hover:bg-brand-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-700 sm:mt-0 sm:ml-3 sm:w-auto sm:flex-shrink-0"
               >
                 {signupCta}
               </button>
@@ -120,7 +120,7 @@ export default function SignupCard({
             }}
           />
         </form>
-        <p className="mt-3 text-xs text-center md:text-sm text-brand-200">
+        <p className="mt-3 text-center text-xs text-brand-200 md:text-sm">
           {signupPrivacy}
         </p>
       </div>

@@ -23,7 +23,7 @@ const Past = ({ allPosts }) => {
           images: [{ url: `${t('pastImage')}` }],
         }}
       />
-      <main className="grid grid-flow-row gap-12 justify-items-center">
+      <main className="grid grid-flow-row justify-items-center gap-12">
         {allPosts.map((post, index) => (
           <PostCard
             key={index}

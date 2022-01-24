@@ -12,8 +12,8 @@ const Homepage = () => {
 
   return (
     <div>
-      <main className="grid grid-flow-row pt-16 gap-y-32">
-        <div className="grid grid-flow-row px-2 gap-y-16">
+      <main className="grid grid-flow-row gap-y-32 pt-16">
+        <div className="grid grid-flow-row gap-y-16 px-2">
           <h1 className="text-4xl font-bold sm:text-5xl">
             {t('missionStatement')}
           </h1>
