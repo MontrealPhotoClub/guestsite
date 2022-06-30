@@ -1,9 +1,9 @@
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 
+import { TranslateIcon } from '@heroicons/react/solid'
 import Logo from '../elements/logos/Logo'
 import LogoMobile from '../elements/logos/LogoMobile'
-import { TranslateIcon, LoginIcon } from '@heroicons/react/solid'
 
 export default function Header({
   menuAbout,

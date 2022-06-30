@@ -1,5 +1,5 @@
-import { getEventPosts } from '../lib/api'
 import PostCard from '../components/PostCard'
+import { getEventPosts } from '../lib/api'
 
 import { useRouter } from 'next/router'
 

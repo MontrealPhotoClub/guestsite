@@ -1,5 +1,5 @@
-import SignupCard from '../components/SignupCard'
 import FounderWord from '../components/FounderWord'
+import SignupCard from '../components/SignupCard'
 
 import { useRouter } from 'next/router'
 
