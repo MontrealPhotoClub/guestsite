@@ -1,5 +1,5 @@
+import { format, parseISO } from 'date-fns'
 import NextLink from 'next/link'
-import { parseISO, format } from 'date-fns'
 
 export default function PostCard({
   title,

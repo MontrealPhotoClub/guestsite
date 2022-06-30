@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { getPostBySlug, getAllPosts } from '../lib/api'
+import { getAllPosts, getPostBySlug } from '../lib/api'
 import markdownToHtml from '../lib/markdownToHtml'
 
 import PostBody from '../components/PostBody'
