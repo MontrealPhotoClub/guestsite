@@ -3,9 +3,10 @@
   "version": "3.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx}\""
   },
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "^0.3.7",
@@ -18,12 +19,12 @@
     "comma-number": "^2.0.1",
     "date-fns": "2.16.1",
     "gray-matter": "4.0.2",
-    "next": "12.1.0",
+    "next": "15.1.1",
     "next-i18next": "^8.6.0",
     "next-seo": "^4.17.0",
     "postcss": "^8.4.4",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "react-hook-form": "^6.15.4",
     "react-hot-toast": "^2.1.1",
     "remark": "13.0.0",
