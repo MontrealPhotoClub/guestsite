@@ -14,6 +14,6 @@
   "menuLogin": "https://profile.montrealphoto.club",
   "pastTitle": "Past Events",
   "pastExcerpt": "List of past events hosted by the Montréal Photo Club",
-  "pastImage": "https://og.jpvalery.me/Past%20Events.png?theme=dotclub&md=1&fontSize=100px",
+  "pastImage": "https://og.jpvalery.me/api/og/photo/club/Past%20Events",
   "toastSuccess": "Successfully submitted!"
 }

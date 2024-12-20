@@ -15,8 +15,7 @@ const SEO = {
     description,
     images: [
       {
-        url:
-          'https://og.jpvalery.me/**Montr%C3%A9al%20Photo%20Club**.png?theme=dotclub&md=1&fontSize=100px',
+        url: 'https://og.jpvalery.me/api/og/photo/club/Montréal%20Photo%20Club',
         alt: title,
       },
     ],
