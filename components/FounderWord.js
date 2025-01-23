@@ -3,7 +3,7 @@ export default function SignupCard({ founderQuote, founderTitle }) {
     <section className="overflow-hidden bg-white">
       <div className="relative mx-auto max-w-7xl px-4 pt-20 pb-12 sm:px-6 lg:px-8 lg:py-20">
         <div className="relative lg:flex lg:items-center">
-          <div className="hidden lg:block lg:flex-shrink-0">
+          <div className="hidden lg:block lg:shrink-0">
             <img
               className="h-64 w-64 rounded-full xl:h-80 xl:w-80"
               src="/static/avatars/jpvalery.jpg"
@@ -30,7 +30,7 @@ export default function SignupCard({ founderQuote, founderTitle }) {
               </div>
               <footer className="mt-8">
                 <div className="flex">
-                  <div className="flex-shrink-0 lg:hidden">
+                  <div className="shrink-0 lg:hidden">
                     <img
                       className="h-12 w-12 rounded-full"
                       src="/static/avatars/jpvalery.jpg"

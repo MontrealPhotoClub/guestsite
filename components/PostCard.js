@@ -11,10 +11,10 @@ export default function PostCard({
 }) {
   const fdate = parseISO(date)
   return (
-    (<NextLink href={slug} legacyBehavior>
-      <div className="grid max-w-4xl cursor-pointer grid-flow-col items-stretch gap-x-8 rounded border p-4">
+    <NextLink href={slug} legacyBehavior>
+      <div className="grid max-w-4xl cursor-pointer grid-flow-col items-stretch gap-x-8 rounded-sm border p-4">
         <div>
-          <img src={coverImage} className="rounded" />
+          <img src={coverImage} className="rounded-sm" />
         </div>
         <div className="flex flex-col gap-4">
           <div>
@@ -29,6 +29,6 @@ export default function PostCard({
           </div>
         </div>
       </div>
-    </NextLink>)
-  );
+    </NextLink>
+  )
 }

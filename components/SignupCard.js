@@ -81,7 +81,7 @@ export default function SignupCard({
                 name="email"
                 type="email"
                 autoComplete="email"
-                className="w-full rounded-md border-white px-5 py-3 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-700"
+                className="w-full rounded-md border-white px-5 py-3 placeholder-gray-500 focus:outline-hidden focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-700"
                 placeholder={signupPlaceholder}
                 aria-describedby={signupPlaceholder}
                 ref={register({ required: true, maxLength: 80 })}
@@ -90,7 +90,7 @@ export default function SignupCard({
               />
               <button
                 type="submit"
-                className="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-brand-500 px-5 py-3 text-base font-medium text-white shadow hover:bg-brand-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-700 sm:mt-0 sm:ml-3 sm:w-auto sm:flex-shrink-0"
+                className="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-brand-500 px-5 py-3 text-base font-medium text-white shadow-sm hover:bg-brand-400 focus:outline-hidden focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-700 sm:mt-0 sm:ml-3 sm:w-auto sm:shrink-0"
               >
                 {signupCta}
               </button>
