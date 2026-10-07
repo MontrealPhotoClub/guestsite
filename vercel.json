@@ -1,0 +1,30 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "astro",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "profile.montrealphoto.club" }],
+      "destination": "https://montrealphoto.club/profil",
+      "permanent": true
+    },
+    { "source": "/fr", "destination": "/", "permanent": true },
+    { "source": "/past", "destination": "/en/events", "permanent": true },
+    { "source": "/fr/past", "destination": "/evenements", "permanent": true },
+    { "source": "/about", "destination": "/en/about", "permanent": true },
+    { "source": "/fr/about", "destination": "/a-propos", "permanent": true },
+    { "source": "/fr/contact", "destination": "/contact", "permanent": true },
+    {
+      "source": "/:slug(fujifilm-cwu-2025|metro-photo-challenge-1-montreal-stm|metro-photo-challenge-2-montreal-stm|montreal-photo-club-olympus-flash-workshop|photography-commerce-instagram-keynote-burst-shopify|unsplash-photowalk-meetups-montreal|workshop-photo-night-long-exposure-olympus-francois-desrosiers)",
+      "destination": "/en/events/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/fr/:slug(fujifilm-cwu-2025|metro-photo-challenge-1-montreal-stm|metro-photo-challenge-2-montreal-stm|montreal-photo-club-olympus-flash-workshop|photography-commerce-instagram-keynote-burst-shopify|unsplash-photowalk-meetups-montreal|workshop-photo-night-long-exposure-olympus-francois-desrosiers)",
+      "destination": "/evenements/:slug",
+      "permanent": true
+    }
+  ]
+}

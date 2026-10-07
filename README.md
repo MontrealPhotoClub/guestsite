@@ -1,5 +1,101 @@
-# MontrealPhoto.club Guest Site
+# Montréal Photo Club
 
-This is the third iteration of the [Montréal Photo Club](https://montrealphoto.club) website. After carrd, Gatsby+Novela, this time it's built on Next.js+Tailwind
+The website of the [Montréal Photo Club](https://montrealphoto.club). After
+carrd, Gatsby + Novela and Next.js, this fourth version merges the guest site
+and the member profile app into one repo.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and using TailwindCSS.
+- **Site:** [Astro](https://astro.build), fully static, French at `/` and
+  English at `/en`.
+- **Members:** [Convex](https://convex.dev) stores members. Members log in
+  with a 6-digit code sent by email (Convex Auth).
+- **Email:** [Customer.io](https://customer.io) sends the login codes and the
+  event announcements. Convex pushes every member change to Customer.io, and a
+  Customer.io webhook sends unsubscribes back to Convex.
+- **Hosting:** Vercel.
+
+## Layout
+
+```
+src/
+  content/events/{fr,en}/   past events (same slug in both languages)
+  content/pages/{fr,en}/    about, contact, stewards (releve.md / stewards.md)
+  assets/                   images, optimized at build time
+  i18n/                     UI strings and the localized route map
+  components/views/         one view per page type, shared by both locales
+  components/profile/       the only client-side island (React)
+  pages/                    thin route files, French at the root, English in en/
+convex/                     schema, auth, members, Customer.io sync, webhook
+scripts/import-cio.ts       one-time import of the Customer.io people export
+vercel.json                 redirects from the old URLs and profile subdomain
+```
+
+## Develop
+
+```sh
+pnpm install
+pnpm dev:convex   # first run creates a dev deployment and writes .env.local
+pnpm dev          # http://localhost:4321
+```
+
+Add `PUBLIC_CONVEX_URL` to `.env.local` with the value of `CONVEX_URL`.
+
+Set the dev deployment variables once:
+
+```sh
+npx @convex-dev/auth --web-server-url http://localhost:4321  # SITE_URL, JWT_PRIVATE_KEY, JWKS
+npx convex env set LOG_LOGIN_CODES true  # print codes in the Convex logs, no email
+```
+
+`npx @convex-dev/auth` can offer to write `convex/auth.ts`,
+`convex/auth.config.ts` and `convex/http.ts`. They exist already: keep them.
+
+To try Convex without an account: `CONVEX_AGENT_MODE=anonymous npx convex dev`.
+
+Checks: `pnpm check` (Astro and Convex types) and `pnpm build`.
+
+## Customer.io setup
+
+1. **Login code email.** Create a transactional message (Transactional →
+   Create message). Use `{{trigger.code}}` for the code and
+   `{{trigger.language}}` (`fr` or `en`) to pick the text. Put its id or
+   trigger name in `CIO_LOGIN_MESSAGE_ID`.
+2. **API keys.** Set `CIO_SITE_ID`, `CIO_TRACK_API_KEY` and `CIO_APP_API_KEY`
+   on the Convex deployment.
+3. **New members** are submitted to the existing `next-signup-fr` and
+   `next-signup-en` forms, so the campaigns attached to them keep working.
+4. **Profile changes** update the person with the same attributes as the old
+   profile app: `firstName`, `lastName`, `website`, `instagram`, `language`,
+   `unsubscribed`.
+5. **Reporting webhook.** Data & Integrations → Reporting webhooks → add
+   `https://<deployment>.convex.site/cio/webhook`. Enable the customer
+   subscribed, customer unsubscribed and email unsubscribed events. Put the
+   signing key in `CIO_WEBHOOK_SIGNING_KEY`.
+
+## Import the existing members
+
+Export people from Customer.io as CSV with these columns: `id`, `cio_id`,
+`email`, `firstName`, `lastName`, `website`, `instagram`, `language`,
+`unsubscribed`, `created_at`. Then:
+
+```sh
+pnpm import:cio people.csv          # dev deployment
+pnpm import:cio people.csv --prod   # production deployment
+```
+
+The import matches rows by email, so you can run it again. It does not call
+Customer.io. Imported members get their account when they first log in with
+the same email.
+
+## Deploy
+
+On Vercel:
+
+- Build command: `npx convex deploy --cmd 'pnpm build' --cmd-url-env-var-name PUBLIC_CONVEX_URL`
+- Environment variables: `CONVEX_DEPLOY_KEY` (production deploy key from the
+  Convex dashboard) and `PUBLIC_UMAMI_WEBSITE_ID`.
+- Add `profile.montrealphoto.club` as a domain of this project. `vercel.json`
+  redirects it to `/profil`.
+
+On the Convex production deployment, set `SITE_URL=https://montrealphoto.club`,
+the auth keys (`npx @convex-dev/auth --prod`) and the Customer.io variables.
+See `.env.example` for the full list.

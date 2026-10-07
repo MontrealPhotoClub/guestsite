@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { t, url } from '../i18n'
+
+// One static 404 for both locales: French first, then English.
+const fr = t('fr')
+const en = t('en')
+---
+
+<BaseLayout title={fr.notFound.title}>
+  <section class="not-found">
+    <h1>{fr.notFound.title}</h1>
+    <p>{fr.notFound.body}</p>
+    <p>
+      <a href={url('home', 'fr')}>{fr.notFound.back}</a>
+    </p>
+  </section>
+  <section class="not-found" lang="en-CA">
+    <h2>{en.notFound.title}</h2>
+    <p>{en.notFound.body}</p>
+    <p>
+      <a href={url('home', 'en')}>{en.notFound.back}</a>
+    </p>
+  </section>
+</BaseLayout>

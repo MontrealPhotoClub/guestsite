@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import ProfileApp from '../profile/ProfileApp'
+import { t, url, type Locale } from '../../i18n'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const dict = t(locale)
+---
+
+<BaseLayout title={dict.profile.title}>
+  <section class="profile-page">
+    <h1>{dict.profile.title}</h1>
+    <ProfileApp
+      client:only="react"
+      locale={locale}
+      strings={dict.profile}
+      redirectTo={url('profile', locale)}
+    >
+      <p slot="fallback">{dict.profile.loading}</p>
+    </ProfileApp>
+  </section>
+</BaseLayout>

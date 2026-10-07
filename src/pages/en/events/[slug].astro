@@ -1,0 +1,18 @@
+---
+import type { GetStaticPaths } from 'astro'
+import EventView from '../../../components/views/EventView.astro'
+import { getEvents } from '../../../lib/content'
+import { entrySlug } from '../../../i18n'
+
+export const getStaticPaths = (async () => {
+  const events = await getEvents('en')
+  return events.map((event) => ({
+    params: { slug: entrySlug(event.id) },
+    props: { event },
+  }))
+}) satisfies GetStaticPaths
+
+const { event } = Astro.props
+---
+
+<EventView locale="en" event={event} />

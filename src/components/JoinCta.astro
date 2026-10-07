@@ -1,0 +1,19 @@
+---
+import { t, url, type Locale } from '../i18n'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const dict = t(locale)
+---
+
+<section class="join-cta">
+  <h2>{dict.join.headline}</h2>
+  <p>{dict.join.subline}</p>
+  <a href={url('profile', locale)}>{dict.join.cta}</a>
+  <p>
+    <small>{dict.join.privacy}</small>
+  </p>
+</section>

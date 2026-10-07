@@ -1,0 +1,24 @@
+---
+import { t, type Locale } from '../i18n'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const dict = t(locale)
+---
+
+<footer class="site-footer">
+  <ul>
+    <li>
+      <a href="https://instagram.com/montrealphotoclub">Instagram</a>
+    </li>
+    <li>
+      <a href="mailto:contact@montrealphoto.club">{dict.footer.contact}</a>
+    </li>
+  </ul>
+  <p>
+    &copy; 2018–{new Date().getFullYear()} {dict.meta.siteName}
+  </p>
+</footer>
