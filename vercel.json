@@ -70,8 +70,12 @@
   ],
   "rewrites": [
     {
-      "source": "/static/:file(logo.png|logo.svg|favicon.png|og-banner.jpg)",
+      "source": "/static/:file(logo.png|logo.svg|favicon.png)",
       "destination": "/:file"
+    },
+    {
+      "source": "/:file(og-banner.jpg|static/og-banner.jpg)",
+      "destination": "/og-banner-fr.jpg"
     }
   ]
 }

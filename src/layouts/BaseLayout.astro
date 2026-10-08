@@ -38,7 +38,7 @@ const ogImage = image
       ).src,
       site
     ).href
-  : new URL('/og-banner.jpg', site).href
+  : new URL(`/og-banner-${locale}.jpg`, site).href
 const umamiId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID
 ---
 
