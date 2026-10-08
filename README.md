@@ -77,11 +77,12 @@ does not know Tailwind 4 themes.
 
 ## Customer.io setup
 
-1. **Login code email.** The source is React Email in `emails/`
-   (`pnpm email:dev` previews it). `pnpm email:build` writes
-   `emails/out/login-code.liquid.html`: paste it as the body of the
-   transactional message `login-convex`. The subject line is in
-   `scripts/build-login-email.mjs`. The API call sends the code to
+1. **Emails.** The source is React Email in `emails/` (`pnpm email:dev`
+   previews it). `pnpm email:build` writes `emails/out/<name>.liquid.html`,
+   both languages in one file. Paste it as the message body, with no layout:
+   `login-code` into the transactional message `login-convex`, `welcome` into
+   the ONB-Welcome campaign email. The subject lines are in
+   `scripts/build-emails.mjs`. The login API call sends the code to
    unsubscribed members too and does not keep it in delivery history.
 2. **API keys.** Set `CIO_SITE_ID`, `CIO_TRACK_API_KEY` and `CIO_APP_API_KEY`
    on the Convex deployment.

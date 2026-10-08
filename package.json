@@ -17,7 +17,7 @@
     "format": "biome check --write .",
     "lint": "biome check .",
     "email:dev": "email dev --dir emails --port 3333",
-    "email:build": "node scripts/build-login-email.mjs"
+    "email:build": "node scripts/build-emails.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
