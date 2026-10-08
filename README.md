@@ -114,7 +114,7 @@ the same email.
 ## Deploy
 
 On Vercel, `vercel.json` sets the framework and the build command
-(`scripts/vercel-build.sh`), and `package.json` `engines` sets Node 22+.
+(`scripts/vercel-build.sh`), and `package.json` `engines` pins Node 24.x, like the Vercel project.
 
 - Production builds deploy the Convex functions first, then build the site
   with the production Convex URL. Preview builds only build the site, so the
