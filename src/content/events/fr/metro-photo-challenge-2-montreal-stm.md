@@ -4,6 +4,8 @@ excerpt: 'Le 16 Mars 2019, nous nous sommes à nouveau rassemblés pour la secon
 date: 2019-03-17T12:00:00.000Z
 cover: '../../../assets/events/metro-photo-challenge-2-montreal-stm/hero.jpg'
 author: 'Jp Valery'
+kind: 'Défi'
+place: 'Métro de Montréal'
 ---
 
 Arès le succès incroyable de la [première édition](/evenements/metro-photo-challenge-1-montreal-stm), nous avons décidé d'organiser une deuxième édition du Métro Photo Challenge quelques mois après.

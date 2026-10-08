@@ -1,4 +1,4 @@
-import { getCollection, getEntry, type CollectionEntry } from 'astro:content'
+import { type CollectionEntry, getCollection, getEntry } from 'astro:content'
 import type { Locale } from '../i18n'
 
 /** Events for one locale, newest first. */

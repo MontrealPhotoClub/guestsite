@@ -75,9 +75,23 @@ export function altLocaleUrl(pathname: string): string {
   return localeUrl(pathname, otherLocale(getLocale(pathname)))
 }
 
-export function formatDate(date: Date, locale: Locale): string {
+export function formatDate(
+  date: Date,
+  locale: Locale,
+  dateStyle: 'long' | 'medium' = 'long'
+): string {
   return new Intl.DateTimeFormat(dicts[locale].meta.dateLocale, {
-    dateStyle: 'long',
+    dateStyle,
     timeZone: 'America/Montreal',
   }).format(date)
+}
+
+/** Fills `{name}` placeholders in a UI string. */
+export function fill(
+  template: string,
+  values: Record<string, string | number>
+): string {
+  return template.replace(/\{(\w+)\}/g, (_, key: string) =>
+    String(values[key] ?? '')
+  )
 }

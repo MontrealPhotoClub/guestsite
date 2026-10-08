@@ -1,5 +1,5 @@
 ---
-import { t, url, type Locale } from '../i18n'
+import { type Locale, t, url } from '../i18n'
 
 interface Props {
   locale: Locale
@@ -9,9 +9,15 @@ const { locale } = Astro.props
 const dict = t(locale)
 ---
 
-<aside class="stewards-banner">
-  <p>
-    {dict.stewards.banner}
-    <a href={url('stewards', locale)}>{dict.stewards.bannerCta}</a>
-  </p>
+<aside aria-label={dict.stewards.tag}>
+  <a
+    href={url('stewards', locale)}
+    class="gutter flex flex-wrap items-center gap-x-4 gap-y-2 bg-accent py-3 text-base font-semibold text-ink no-underline"
+  >
+    <span class="tag bg-ink text-on-ink">{dict.stewards.tag}</span>
+    <span>{dict.stewards.banner}</span>
+    <span class="underline underline-offset-[3px]">
+      {dict.stewards.bannerCta}
+    </span>
+  </a>
 </aside>

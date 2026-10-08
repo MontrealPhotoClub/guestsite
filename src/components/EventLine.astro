@@ -1,0 +1,77 @@
+---
+import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+import { entrySlug, eventUrl, formatDate, type Locale, t, url } from '../i18n'
+
+interface Props {
+  locale: Locale
+  events: CollectionEntry<'events'>[]
+  /** Show the dashed "next stop" station that points to the stewards page. */
+  showNext?: boolean
+}
+
+const { locale, events, showNext = false } = Astro.props
+const dict = t(locale)
+
+const rowClass =
+  'flex min-w-0 flex-auto flex-wrap items-center justify-between gap-x-10 gap-y-4 border-b border-line-soft py-6'
+const linkClass =
+  'group flex gap-x-[clamp(1rem,2vw,1.75rem)] text-ink no-underline'
+const titleClass =
+  'text-[clamp(1.5rem,2.4vw,2.125rem)] leading-[1.1] font-extrabold tracking-[-0.025em] group-hover:underline group-hover:decoration-accent group-hover:decoration-[3px]'
+---
+
+<ol class="flex flex-col">
+  {showNext && (
+    <li>
+      <a href={url('stewards', locale)} class={linkClass}>
+        <span aria-hidden="true" class="rail rail-next rail-start">
+          <span class="station station-next" />
+        </span>
+        <span class={rowClass}>
+          <span class="flex flex-[1_1_20rem] flex-col gap-1.5">
+            <span class="kicker">{dict.line.nextDate}</span>
+            <span class={titleClass}>{dict.line.nextTitle}</span>
+            <span class="text-[17px] text-muted">{dict.line.nextMeta}</span>
+          </span>
+        </span>
+      </a>
+    </li>
+  )}
+  {events.map((event, i) => {
+    const rail = [
+      'rail',
+      !showNext && i === 0 && 'rail-start',
+      i === events.length - 1 && 'rail-end',
+    ]
+    const meta = [event.data.kind, event.data.place].filter(Boolean).join(' · ')
+    return (
+      <li>
+        <a href={eventUrl(entrySlug(event.id), locale)} class={linkClass}>
+          <span aria-hidden="true" class:list={rail}>
+            <span class="station" />
+          </span>
+          <span class={rowClass}>
+            <span class="flex flex-[1_1_20rem] flex-col gap-1.5">
+              <time
+                class="kicker"
+                datetime={event.data.date.toISOString().slice(0, 10)}
+              >
+                {formatDate(event.data.date, locale, 'medium')}
+              </time>
+              <span class={titleClass}>{event.data.title}</span>
+              {meta && <span class="text-[17px] text-muted">{meta}</span>}
+            </span>
+            <Image
+              src={event.data.cover}
+              alt=""
+              widths={[280, 440]}
+              sizes="220px"
+              class="aspect-[3/2] w-[clamp(8.75rem,18vw,13.75rem)] flex-none rounded-[0.875rem] object-cover"
+            />
+          </span>
+        </a>
+      </li>
+    )
+  })}
+</ol>

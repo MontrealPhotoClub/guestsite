@@ -29,6 +29,22 @@ scripts/import-cio.ts       one-time import of the Customer.io people export
 vercel.json                 redirects from the old URLs and profile subdomain
 ```
 
+## Design
+
+"Ligne de métro": light paper, ink type and one metro-orange accent. Past
+events are stations on a line, and the dashed first station points to the
+stewards call.
+
+- Colors, radii and component classes (`.btn`, `.rail`, `.station`, `.prose`,
+  the profile island) live in `src/styles/global.css`.
+- Fonts: Schibsted Grotesk (UI and headings) and Newsreader (the stewards
+  letter), downloaded at build time by Astro's fonts API (`astro.config.mjs`).
+- The stewards banner shows on every page except the stewards page. Remove
+  `<StewardsBanner>` from `src/layouts/BaseLayout.astro` once new stewards are
+  found.
+- The stewards letter and its two lists are in
+  `src/content/pages/{fr/releve,en/stewards}.md`.
+
 ## Develop
 
 ```sh
@@ -51,14 +67,22 @@ npx convex env set LOG_LOGIN_CODES true  # print codes in the Convex logs, no em
 
 To try Convex without an account: `CONVEX_AGENT_MODE=anonymous npx convex dev`.
 
-Checks: `pnpm check` (Astro and Convex types) and `pnpm build`.
+Checks: `pnpm check` (Astro and Convex types), `pnpm lint` (Biome) and
+`pnpm build`. `pnpm format` applies Biome's formatting and safe fixes.
+
+Biome formats `.astro` files with its experimental HTML support
+(`html.experimentalFullSupportEnabled` in `biome.json`). Biome does not sort
+Tailwind classes here: its `useSortedClasses` rule is still in the nursery and
+does not know Tailwind 4 themes.
 
 ## Customer.io setup
 
-1. **Login code email.** Create a transactional message (Transactional →
-   Create message). Use `{{trigger.code}}` for the code and
-   `{{trigger.language}}` (`fr` or `en`) to pick the text. Put its id or
-   trigger name in `CIO_LOGIN_MESSAGE_ID`.
+1. **Login code email.** The source is React Email in `emails/`
+   (`pnpm email:dev` previews it). `pnpm email:build` writes
+   `emails/out/login-code.liquid.html`: paste it as the body of the
+   transactional message `login-convex`. The subject line is in
+   `scripts/build-login-email.mjs`. The API call sends the code to
+   unsubscribed members too and does not keep it in delivery history.
 2. **API keys.** Set `CIO_SITE_ID`, `CIO_TRACK_API_KEY` and `CIO_APP_API_KEY`
    on the Convex deployment.
 3. **New members** are submitted to the existing `next-signup-fr` and
@@ -88,11 +112,14 @@ the same email.
 
 ## Deploy
 
-On Vercel:
+On Vercel, `vercel.json` sets the framework and the build command
+(`scripts/vercel-build.sh`), and `package.json` `engines` sets Node 22+.
 
-- Build command: `npx convex deploy --cmd 'pnpm build' --cmd-url-env-var-name PUBLIC_CONVEX_URL`
-- Environment variables: `CONVEX_DEPLOY_KEY` (production deploy key from the
-  Convex dashboard) and `PUBLIC_UMAMI_WEBSITE_ID`.
+- Production builds deploy the Convex functions first, then build the site
+  with the production Convex URL. Preview builds only build the site, so the
+  profile page is unavailable on previews.
+- Environment variables (Production): `CONVEX_DEPLOY_KEY` (production deploy
+  key from the Convex dashboard) and `PUBLIC_UMAMI_WEBSITE_ID`.
 - Add `profile.montrealphoto.club` as a domain of this project. `vercel.json`
   redirects it to `/profil`.
 

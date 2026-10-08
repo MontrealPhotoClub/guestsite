@@ -1,11 +1,11 @@
 ---
+import { Font, getImage } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
-import { getImage } from 'astro:assets'
 import '../styles/global.css'
 import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
 import StewardsBanner from '../components/StewardsBanner.astro'
-import { getLocale, htmlLang, localeUrl, locales, t } from '../i18n'
+import { getLocale, htmlLang, locales, localeUrl, t } from '../i18n'
 
 interface Props {
   title?: string
@@ -45,11 +45,11 @@ const umamiId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID
 <!doctype html>
 <html lang={htmlLang[locale]}>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{fullTitle}</title>
-    <meta name="description" content={metaDescription} />
-    <link rel="canonical" href={canonical} />
+    <meta name="description" content={metaDescription}>
+    <link rel="canonical" href={canonical}>
     {locales.map((l) => (
       <link
         rel="alternate"
@@ -61,18 +61,21 @@ const umamiId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID
       rel="alternate"
       hreflang="x-default"
       href={new URL(localeUrl(Astro.url.pathname, 'fr'), site).href}
-    />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    >
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="theme-color" content="#f4f4f1">
+    <Font cssVariable="--font-schibsted" preload />
+    <Font cssVariable="--font-newsreader" />
+    <link rel="sitemap" href="/sitemap-index.xml">
 
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={dict.meta.siteName} />
-    <meta property="og:locale" content={htmlLang[locale].replace('-', '_')} />
-    <meta property="og:title" content={title ?? dict.meta.siteName} />
-    <meta property="og:description" content={metaDescription} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={ogImage} />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content={dict.meta.siteName}>
+    <meta property="og:locale" content={htmlLang[locale].replace('-', '_')}>
+    <meta property="og:title" content={title ?? dict.meta.siteName}>
+    <meta property="og:description" content={metaDescription}>
+    <meta property="og:url" content={canonical}>
+    <meta property="og:image" content={ogImage}>
+    <meta name="twitter:card" content="summary_large_image">
 
     {umamiId && (
       <script
@@ -83,13 +86,13 @@ const umamiId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID
       />
     )}
   </head>
-  <body>
+  <body class="flex min-h-dvh flex-col">
     <a class="skip-link" href="#content">
       {dict.nav.skipToContent}
     </a>
     {!hideStewardsBanner && <StewardsBanner locale={locale} />}
     <Header locale={locale} />
-    <main id="content">
+    <main id="content" class="flex-1">
       <slot />
     </main>
     <Footer locale={locale} />

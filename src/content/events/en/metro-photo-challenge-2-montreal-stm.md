@@ -4,6 +4,8 @@ excerpt: 'On March 16th 2019, we gathered again for the second edition of the Me
 date: 2019-03-17T12:00:00.000Z
 cover: '../../../assets/events/metro-photo-challenge-2-montreal-stm/hero.jpg'
 author: 'Jp Valery'
+kind: 'Challenge'
+place: 'Montréal metro'
 ---
 
 After the incredible success of the [first edition](/en/events/metro-photo-challenge-1-montreal-stm), we decided to host a second version of the Métro Photo Challenge a couple of months after.

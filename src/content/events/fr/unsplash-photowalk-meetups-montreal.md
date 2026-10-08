@@ -4,6 +4,8 @@ excerpt: 'En tant que Unsplash Host officiel pour Montréal, j''ai organisé des
 date: 2018-09-30T12:00:00.000Z
 cover: '../../../assets/events/unsplash-photowalk-meetups-montreal/hero.jpg'
 author: 'Jp Valery'
+kind: 'Marche photo'
+place: 'Montréal'
 ---
 
 C'est en fait comme ça que tout a commencé. Je suis le [Unsplash Host officiel pour Montréal](https://medium.com/unsplash/host-profile-jp-valery-72654ba707d5) depuis 2017. Dans cette fonction, j'ai organisé plusieurs marches photos et des rencontres.

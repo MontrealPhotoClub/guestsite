@@ -1,8 +1,8 @@
 ---
 import type { GetStaticPaths } from 'astro'
 import EventView from '../../components/views/EventView.astro'
-import { getEvents } from '../../lib/content'
 import { entrySlug } from '../../i18n'
+import { getEvents } from '../../lib/content'
 
 export const getStaticPaths = (async () => {
   const events = await getEvents('fr')

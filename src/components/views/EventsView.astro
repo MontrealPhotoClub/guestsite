@@ -1,8 +1,9 @@
 ---
+import { type Locale, t } from '../../i18n'
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import EventList from '../EventList.astro'
 import { getEvents } from '../../lib/content'
-import { t, type Locale } from '../../i18n'
+import EventLine from '../EventLine.astro'
+import JoinPanel from '../JoinPanel.astro'
 
 interface Props {
   locale: Locale
@@ -14,6 +15,16 @@ const events = await getEvents(locale)
 ---
 
 <BaseLayout title={dict.events.title} description={dict.events.excerpt}>
-  <h1>{dict.events.title}</h1>
-  <EventList locale={locale} events={events} />
+  <section class="gutter flex flex-col gap-6 pt-[clamp(2rem,5vw,4.5rem)] pb-12">
+    <h1 class="page-title">{dict.events.title}</h1>
+    <p class="lead">{dict.events.intro}</p>
+  </section>
+
+  <section class="gutter pb-24">
+    <div class="rounded-[2rem] bg-card px-[clamp(1rem,3vw,2.5rem)] py-4">
+      <EventLine locale={locale} events={events} showNext />
+    </div>
+  </section>
+
+  <JoinPanel locale={locale} />
 </BaseLayout>

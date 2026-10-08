@@ -5,10 +5,10 @@ import type { Doc, Id } from './_generated/dataModel'
 import {
   internalMutation,
   internalQuery,
-  mutation,
-  query,
   type MutationCtx,
+  mutation,
   type QueryCtx,
+  query,
 } from './_generated/server'
 import { language } from './schema'
 
@@ -53,6 +53,19 @@ function cleanInstagram(value: string): string | undefined {
     fail({ field: 'instagram', kind: 'invalid' })
   }
   return handle
+}
+
+/** For imports: a value that fails cleaning is dropped, not fatal. */
+function cleanOrDrop(
+  clean: (value: string) => string | undefined,
+  value: string | undefined
+): string | undefined {
+  if (!value) return undefined
+  try {
+    return clean(value)
+  } catch {
+    return undefined
+  }
 }
 
 export function normalizeEmail(email: string): string {
@@ -244,8 +257,8 @@ export const importBatch = internalMutation({
         cioId: row.cioId || undefined,
         firstName: row.firstName?.trim() || undefined,
         lastName: row.lastName?.trim() || undefined,
-        website: row.website?.trim() || undefined,
-        instagram: row.instagram?.trim().replace(/^@/, '') || undefined,
+        website: cleanOrDrop(cleanWebsite, row.website),
+        instagram: cleanOrDrop(cleanInstagram, row.instagram),
         language: row.language === 'en' ? ('en' as const) : ('fr' as const),
         subscribed: row.unsubscribed !== true,
       }

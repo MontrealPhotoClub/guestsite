@@ -4,6 +4,8 @@ excerpt: 'Le 18 Novembre 2018, nous nous sommes répartis en une douzaine d''éq
 date: 2018-11-19T12:00:00.000Z
 cover: '../../../assets/events/metro-photo-challenge-1-montreal-stm/hero.jpg'
 author: 'Jp Valery'
+kind: 'Défi'
+place: 'Métro de Montréal'
 ---
 
 Après les marches photos avec Unsplash et basé sur la rétroaction reçue des précédents événements, nous avons décidé d'organiser notre événement suivant d'une manière différente.

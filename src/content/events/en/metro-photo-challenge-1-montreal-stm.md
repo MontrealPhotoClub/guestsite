@@ -4,6 +4,8 @@ excerpt: 'On November 18th 2018, we split up in a dozen of teams and we explored
 date: 2018-11-19T12:00:00.000Z
 cover: '../../../assets/events/metro-photo-challenge-1-montreal-stm/hero.jpg'
 author: 'Jp Valery'
+kind: 'Challenge'
+place: 'Montréal metro'
 ---
 
 After the photowalks with Unsplash and based on feedback receive from previous events, we decided to host our next event in a different way.

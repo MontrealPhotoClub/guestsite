@@ -1,7 +1,7 @@
 import { v } from 'convex/values'
 import { internal } from './_generated/api'
 import type { Doc } from './_generated/dataModel'
-import { internalAction, type ActionCtx } from './_generated/server'
+import { internalAction } from './_generated/server'
 
 // Customer.io stays the email sender. Convex is the source of truth for
 // members and pushes every change to Customer.io.
@@ -59,6 +59,10 @@ export async function sendLoginCode(args: {
       to: args.email,
       language: args.language,
       message_data: { code: args.code, language: args.language },
+      // Unsubscribed members still need a code to log in and resubscribe.
+      send_to_unsubscribed: true,
+      // Codes have no reason to stay in Customer.io's delivery history.
+      disable_message_retention: true,
     }),
   })
   if (!response.ok) {
@@ -70,7 +74,6 @@ export async function sendLoginCode(args: {
 
 /** Retries 429 and 5xx responses with backoff; throws on other errors. */
 async function handleResponse(
-  ctx: ActionCtx,
   response: Response,
   retry: () => Promise<unknown>,
   attempt: number,
@@ -112,7 +115,6 @@ export const submitSignupForm = internalAction({
       }
     )
     const ok = await handleResponse(
-      ctx,
       response,
       () =>
         ctx.scheduler.runAfter(
@@ -157,7 +159,6 @@ export const identify = internalAction({
       }
     )
     const ok = await handleResponse(
-      ctx,
       response,
       () =>
         ctx.scheduler.runAfter(

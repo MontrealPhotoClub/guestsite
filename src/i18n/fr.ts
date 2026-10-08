@@ -8,42 +8,92 @@ const fr = {
   nav: {
     label: 'Navigation principale',
     skipToContent: 'Aller au contenu',
+    menu: 'Menu',
     home: 'Accueil',
     about: 'À propos',
-    events: 'Événements',
+    events: 'Sorties',
     contact: 'Contact',
     profile: 'Mon profil',
-    switchLanguage: 'English',
+    switchLanguage: 'EN',
     switchLanguageLabel: 'Read this page in English',
   },
   home: {
-    missionStatement:
-      'Nous sommes un rassemblement amical de photographes et nous organisons des événements régulièrement à Montréal.',
-    founderQuote:
-      "Après avoir organisé de nombreux événements avec Unsplash et le Métro Photo Challenge, j'ai décidé de créer un club plus formel. Afin que nous puissions continuer à nous amuser, à apprendre, et à rencontrer d'autres photographes.",
-    founderName: 'Jp Valery',
-    founderTitle: 'Fondateur',
-    latestEvents: 'Événements précédents',
-    allEvents: 'Tous les événements',
+    kicker: 'Montréal, depuis 2018',
+    headline: 'On sort, on photographie, on se rencontre.',
+    subline:
+      'Un rassemblement amical de photographes. Marches photo, ateliers et défis, pour tous les niveaux et tous les appareils.',
+    ctaJoin: 'Rejoindre le club',
+    ctaEvents: 'Voir les sorties',
+    heroAlt:
+      'Une personne en manteau jaune sur un quai de métro, téléphone en main',
+    heroCaption: 'Métro Photo Challenge 2 · mars 2019',
+  },
+  line: {
+    title: 'La ligne du club',
+    subtitle: '{count} arrêts depuis 2018. Le prochain dépend de vous.',
+    nextDate: 'Bientôt',
+    nextTitle: 'Prochain arrêt : à vous de jouer',
+    nextMeta: 'Le club cherche sa relève. Lire l’appel\u00a0→',
+    all: 'Toutes les sorties\u00a0→',
+  },
+  formats: {
+    title: 'Ce qu’on fait ensemble',
+    walks: {
+      title: 'Marches photo',
+      body: 'On marche, on photographie, on jase. Notre record : la marche la plus froide des photowalks Unsplash.',
+      alt: 'Des marcheurs sur un pont enneigé, la ville derrière',
+    },
+    workshops: {
+      title: 'Ateliers',
+      body: 'Flash portatif, photo de nuit, longue exposition : des présentations avec des pros de l’industrie.',
+      alt: 'Des mains règlent un appareil photo reflex',
+    },
+    challenges: {
+      title: 'Défis',
+      body: 'Le Métro Photo Challenge : une douzaine d’équipes lâchées dans le métro de Montréal, une journée pour photographier.',
+      alt: 'Une passante entre deux wagons bleus du métro',
+    },
   },
   join: {
-    headline: 'Ne ratez aucun événement à venir',
-    subline: 'Inscrivez-vous gratuitement',
-    cta: "S'inscrire",
-    privacy: 'Vos informations ne sont jamais partagées avec personne.',
+    headline: 'Rejoindre le club',
+    subline:
+      'Gratuit. Un courriel, un code à 6 chiffres, et c’est fait. Pas de mot de passe.',
+    label: 'Votre courriel',
+    cta: 'Recevoir mon code',
+    already: 'Déjà membre ? Le même code ouvre votre profil.',
   },
   events: {
-    title: 'Événements précédents',
+    title: 'Sorties passées',
+    intro:
+      'Toutes les sorties du club depuis 2018, de la plus récente à la plus ancienne.',
     excerpt: 'Liste des événements organisés par le Montréal Photo Club',
     by: 'par',
-    backToEvents: 'Tous les événements',
+    backToEvents: '←\u00a0Toutes les sorties',
   },
   stewards: {
-    banner: 'Le Montréal Photo Club cherche une relève.',
-    bannerCta: 'En savoir plus',
+    tag: 'Avis',
+    banner: 'Le Montréal Photo Club cherche sa relève.',
+    bannerCta: 'Lire l’appel\u00a0→',
+    kicker: 'Appel ouvert depuis octobre 2026',
+    signatureTitle: 'Fondateur du Montréal Photo Club',
+    seekingTitle: 'Ce que je cherche',
+    offeringTitle: 'Ce que je transmets',
+    ctaTitle: 'Ça vous intéresse ? Une ligne suffit.',
+    ctaButton: 'Écrire au club\u00a0→',
+    photosCaption:
+      'Photos prises par des membres, lors des photowalks Unsplash et du Métro Photo Challenge.',
+    photoAlts: [
+      'Un groupe de photographes marche sur un chemin enneigé',
+      'Un homme avec un sac à dos attend sur un quai de métro',
+      'Un homme assis seul sur un banc de la station Place-d’Armes',
+    ],
   },
   profile: {
     title: 'Mon profil',
+    kicker: 'Membres',
+    headline: 'Rejoindre le club ou ouvrir votre profil',
+    aside:
+      'Un seul formulaire pour les deux. Si votre courriel est nouveau, vous devenez membre. Sinon, vous retrouvez votre profil.',
     intro:
       'Entrez votre courriel. Nous vous envoyons un code pour rejoindre le club ou ouvrir votre profil.',
     emailLabel: 'Courriel',
@@ -83,7 +133,9 @@ const fr = {
     },
   },
   footer: {
-    contact: 'Écrivez-nous',
+    contact: 'contact@montrealphoto.club',
+    madeIn: 'Fait à Montréal',
+    stewards: 'La relève',
   },
   notFound: {
     title: 'Page introuvable',

@@ -4,6 +4,8 @@ excerpt: 'We teamed up with Burst and Shopify to bring you two experts on Instag
 date: 2019-06-27T12:00:00.000Z
 cover: '../../../assets/events/photography-commerce-instagram-keynote-burst-shopify/hero.jpg'
 author: 'Jp Valery'
+kind: 'Talk'
+place: 'with Burst and Shopify'
 ---
 
 ## How has Instagram impacted the relationship between Photography and Commerce? Come hear 2 experts on the topic followed by a meet and greet

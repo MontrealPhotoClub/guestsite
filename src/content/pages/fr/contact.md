@@ -6,7 +6,7 @@ cover: '../../../assets/pages/contact/hero.jpg'
 author: 'Jp Valery'
 ---
 
-# Comment nous contacter?
+## Comment nous contacter?
 
 La meilleure manière de nous joindre est à **contact@montrealphoto.club**.
 

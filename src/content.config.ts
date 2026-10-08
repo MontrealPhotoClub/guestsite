@@ -12,6 +12,10 @@ const events = defineCollection({
       date: z.coerce.date(),
       cover: image(),
       author: z.string().default('Jp Valery'),
+      /** Short label on the club line, e.g. "Atelier" or "Défi". */
+      kind: z.string().optional(),
+      /** Where it happened, or who it was with. */
+      place: z.string().optional(),
     }),
 })
 
@@ -25,6 +29,10 @@ const pages = defineCollection({
       date: z.coerce.date().optional(),
       cover: image().optional(),
       author: z.string().optional(),
+      /** Stewards page: the large intro sentence and the two side lists. */
+      lead: z.string().optional(),
+      seeking: z.array(z.string()).optional(),
+      offering: z.array(z.string()).optional(),
     }),
 })
 

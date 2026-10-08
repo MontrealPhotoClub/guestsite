@@ -4,6 +4,8 @@ excerpt: 'Montréal Photo Club is partnering with François Desrosiers, Technica
 date: 2019-09-11T12:00:00.000Z
 cover: '../../../assets/events/workshop-photo-night-long-exposure-olympus-francois-desrosiers/hero.jpg'
 author: 'Jp Valery'
+kind: 'Workshop'
+place: 'with Olympus'
 ---
 
 For this back-to-school, Montréal Photo Club is partnering with François Desrosiers, Technical Sales Executive from Olympus Canada to offer you a free workshop on night photography and long exposure techniques.

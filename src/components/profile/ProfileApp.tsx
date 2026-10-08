@@ -6,7 +6,7 @@ import {
   useQuery,
 } from 'convex/react'
 import { ConvexError } from 'convex/values'
-import { useEffect, useState, type SubmitEvent } from 'react'
+import { type SubmitEvent, useEffect, useState } from 'react'
 import { api } from '../../../convex/_generated/api'
 import type { Dict, Locale } from '../../i18n'
 
@@ -20,6 +20,7 @@ interface Props {
 }
 
 const PROVIDER = 'login-code'
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const convexUrl = import.meta.env.PUBLIC_CONVEX_URL
 const client = convexUrl ? new ConvexReactClient(convexUrl) : null
 
@@ -47,7 +48,8 @@ export default function ProfileApp(props: Props) {
 
 function Profile(props: Props) {
   const { isLoading, isAuthenticated } = useConvexAuth()
-  if (isLoading) return <p className="profile-status">{props.strings.loading}</p>
+  if (isLoading)
+    return <p className="profile-status">{props.strings.loading}</p>
   return isAuthenticated ? <MemberForm {...props} /> : <SignIn {...props} />
 }
 
@@ -59,6 +61,23 @@ function SignIn({ strings, redirectTo }: Props) {
   const [error, setError] = useState<string | null>(null)
   const [pending, setPending] = useState(false)
 
+  // The join form on other pages sends people here with ?email=…
+  // biome-ignore lint/correctness/useExhaustiveDependencies: runs once on mount.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const fromLink = params.get('email')?.trim().toLowerCase()
+    if (!fromLink) return
+    params.delete('email')
+    const query = params.toString()
+    window.history.replaceState(
+      null,
+      '',
+      window.location.pathname + (query ? `?${query}` : '')
+    )
+    setEmail(fromLink)
+    if (EMAIL_PATTERN.test(fromLink)) void sendCodeFor(fromLink)
+  }, [])
+
   async function onEmailSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault()
     const form = new FormData(event.currentTarget)
@@ -68,7 +87,7 @@ function SignIn({ strings, redirectTo }: Props) {
       return
     }
     const normalized = email.trim().toLowerCase()
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized)) {
+    if (!EMAIL_PATTERN.test(normalized)) {
       setError(strings.errors.invalidEmail)
       return
     }
@@ -131,11 +150,12 @@ function SignIn({ strings, redirectTo }: Props) {
           </p>
         )}
         <div className="profile-actions">
-          <button type="submit" disabled={pending}>
+          <button type="submit" className="btn btn-ink" disabled={pending}>
             {strings.verify}
           </button>
           <button
             type="button"
+            className="btn btn-outline"
             disabled={pending}
             onClick={() => void sendCodeFor(email)}
           >
@@ -143,6 +163,7 @@ function SignIn({ strings, redirectTo }: Props) {
           </button>
           <button
             type="button"
+            className="btn-quiet"
             onClick={() => {
               setStep('email')
               setError(null)
@@ -181,7 +202,7 @@ function SignIn({ strings, redirectTo }: Props) {
         </p>
       )}
       <div className="profile-actions">
-        <button type="submit" disabled={pending}>
+        <button type="submit" className="btn btn-ink" disabled={pending}>
           {strings.sendCode}
         </button>
       </div>
@@ -268,14 +289,19 @@ function MemberForm({ locale, strings }: Props) {
 
   const textField = (
     key: 'firstName' | 'lastName' | 'website' | 'instagram',
-    props: { autoComplete?: string; placeholder?: string; type?: string } = {}
+    props: {
+      autoComplete?: string
+      placeholder?: string
+      inputMode?: 'url' | 'text'
+    } = {}
   ) => (
     <div className="profile-field">
       <label htmlFor={`profile-${key}`}>{strings[key]}</label>
       <input
         id={`profile-${key}`}
         name={key}
-        type={props.type ?? 'text'}
+        type="text"
+        inputMode={props.inputMode}
         autoComplete={props.autoComplete}
         placeholder={props.placeholder}
         value={fields[key]}
@@ -303,7 +329,8 @@ function MemberForm({ locale, strings }: Props) {
       {textField('website', {
         autoComplete: 'url',
         placeholder: strings.websitePlaceholder,
-        type: 'url',
+        // Not type="url": people type "example.com" and the server adds https.
+        inputMode: 'url',
       })}
       {textField('instagram', {
         autoComplete: 'off',
@@ -339,10 +366,18 @@ function MemberForm({ locale, strings }: Props) {
       </div>
 
       <div className="profile-actions">
-        <button type="submit" disabled={status === 'saving'}>
+        <button
+          type="submit"
+          className="btn btn-ink"
+          disabled={status === 'saving'}
+        >
           {status === 'saving' ? strings.saving : strings.save}
         </button>
-        <button type="button" onClick={() => void signOut()}>
+        <button
+          type="button"
+          className="btn-quiet"
+          onClick={() => void signOut()}
+        >
           {strings.signOut}
         </button>
       </div>

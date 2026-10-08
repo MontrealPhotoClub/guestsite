@@ -4,6 +4,8 @@ excerpt: '(Offered in French only) Presented by François Desrosiers, Technical 
 date: 2020-01-18T12:00:00.000Z
 cover: '../../../assets/events/montreal-photo-club-olympus-flash-workshop/hero.jpg'
 author: 'Jp Valery'
+kind: 'Workshop'
+place: 'with Olympus'
 ---
 
 ** Free workshop in French - Limited spots **

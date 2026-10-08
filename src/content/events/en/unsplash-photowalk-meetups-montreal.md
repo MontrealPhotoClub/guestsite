@@ -4,6 +4,8 @@ excerpt: 'As the official Unsplash Host for Montréal, I''ve been hosting photow
 date: 2018-09-30T12:00:00.000Z
 cover: '../../../assets/events/unsplash-photowalk-meetups-montreal/hero.jpg'
 author: 'Jp Valery'
+kind: 'Photowalk'
+place: 'Montréal'
 ---
 
 This is actually how everything started. I've been the [official Unsplash Host for Montréal](https://medium.com/unsplash/host-profile-jp-valery-72654ba707d5) since 2017. In that position, I've hosted various photowalks and meetups.

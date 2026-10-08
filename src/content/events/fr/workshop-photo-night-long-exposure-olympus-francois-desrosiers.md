@@ -4,6 +4,8 @@ excerpt: 'Une présentation de François Desrosiers, Technical Sales Executive c
 date: 2019-09-11T12:00:00.000Z
 cover: '../../../assets/events/workshop-photo-night-long-exposure-olympus-francois-desrosiers/hero.jpg'
 author: 'Jp Valery'
+kind: 'Atelier'
+place: 'avec Olympus'
 ---
 
 Pour cette rentrée, le Montréal Photo Club s'associe avec François Desrosiers, Technical Sales Executive chez Olympus Canada pour vous offrir un atelier gratuit sur la photo de nuit et les techniques de longue exposition.

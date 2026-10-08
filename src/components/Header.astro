@@ -1,12 +1,13 @@
 ---
 import {
   altLocaleUrl,
-  otherLocale,
   htmlLang,
+  type Locale,
+  otherLocale,
   t,
   url,
-  type Locale,
 } from '../i18n'
+import Mark from './Mark.astro'
 
 interface Props {
   locale: Locale
@@ -15,42 +16,106 @@ interface Props {
 const { locale } = Astro.props
 const dict = t(locale)
 const alt = otherLocale(locale)
+const path = Astro.url.pathname.replace(/\.html$/, '')
 const links = [
-  { href: url('about', locale), label: dict.nav.about },
   { href: url('events', locale), label: dict.nav.events },
+  { href: url('about', locale), label: dict.nav.about },
   { href: url('contact', locale), label: dict.nav.contact },
-  { href: url('profile', locale), label: dict.nav.profile },
 ]
+const current = (href: string) =>
+  path === href || path.startsWith(`${href}/`) ? 'page' : undefined
+const profileHref = url('profile', locale)
 ---
 
-<header class="site-header">
-  <a class="site-logo" href={url('home', locale)}>
-    <img src="/logo.svg" alt={dict.meta.siteName} width="277" height="34" />
+<header class="gutter flex flex-wrap items-center justify-between gap-4 py-5">
+  <a
+    href={url('home', locale)}
+    class="flex items-center gap-3 text-ink no-underline"
+  >
+    <Mark class="size-8 sm:size-[34px]" />
+    <span class="text-lg font-extrabold tracking-[-0.02em] sm:text-[21px]">
+      {dict.meta.siteName}
+    </span>
   </a>
+
   <nav aria-label={dict.nav.label}>
-    <ul>
+    <ul class="hidden items-center gap-1 text-base font-semibold md:flex">
       {links.map((link) => (
         <li>
           <a
             href={link.href}
-            aria-current={
-              Astro.url.pathname.startsWith(link.href) ? 'page' : undefined
-            }
+            aria-current={current(link.href)}
+            class="rounded-full px-3.5 py-2.5 no-underline hover:bg-card aria-[current=page]:underline aria-[current=page]:decoration-accent aria-[current=page]:decoration-[3px]"
           >
             {link.label}
           </a>
         </li>
       ))}
-      <li>
+      <li class="ml-2">
+        <a
+          href={profileHref}
+          aria-current={current(profileHref)}
+          class="btn btn-outline min-h-11 px-[18px] text-base"
+        >
+          {dict.nav.profile}
+        </a>
+      </li>
+      <li class="ml-1">
         <a
           href={altLocaleUrl(Astro.url.pathname)}
           hreflang={htmlLang[alt]}
           lang={htmlLang[alt]}
           aria-label={dict.nav.switchLanguageLabel}
+          class="inline-flex size-11 items-center justify-center rounded-full bg-ink text-sm font-extrabold text-on-ink no-underline hover:bg-ink-soft"
         >
           {dict.nav.switchLanguage}
         </a>
       </li>
     </ul>
+
+    <details class="group relative md:hidden">
+      <summary
+        class="btn btn-outline min-h-11 list-none px-4 text-base [&::-webkit-details-marker]:hidden"
+      >
+        {dict.nav.menu}
+        <svg
+          class="size-4 transition-transform group-open:rotate-180"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          aria-hidden="true"
+        >
+          <path d="M3 6l5 5 5-5" />
+        </svg>
+      </summary>
+      <ul
+        class="absolute top-14 right-0 z-40 flex w-64 flex-col rounded-3xl bg-card p-2 text-lg font-semibold shadow-[0_12px_40px_rgb(21_21_21/0.14)]"
+      >
+        {[...links, { href: profileHref, label: dict.nav.profile }].map(
+          (link) => (
+            <li>
+              <a
+                href={link.href}
+                aria-current={current(link.href)}
+                class="block rounded-2xl px-4 py-3 no-underline hover:bg-paper aria-[current=page]:bg-paper"
+              >
+                {link.label}
+              </a>
+            </li>
+          )
+        )}
+        <li class="mt-1 border-t border-line-soft pt-1">
+          <a
+            href={altLocaleUrl(Astro.url.pathname)}
+            hreflang={htmlLang[alt]}
+            lang={htmlLang[alt]}
+            class="block rounded-2xl px-4 py-3 no-underline hover:bg-paper"
+          >
+            {alt === 'en' ? 'English' : 'Français'}
+          </a>
+        </li>
+      </ul>
+    </details>
   </nav>
 </header>

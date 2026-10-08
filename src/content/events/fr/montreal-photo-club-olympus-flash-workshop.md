@@ -4,6 +4,8 @@ excerpt: 'Une présentation de François Desrosiers, Technical Sales Executive c
 date: 2020-01-18T12:00:00.000Z
 cover: '../../../assets/events/montreal-photo-club-olympus-flash-workshop/hero.jpg'
 author: 'Jp Valery'
+kind: 'Atelier'
+place: 'avec Olympus'
 ---
 
 ** Atelier gratuit en français - Places limitées **

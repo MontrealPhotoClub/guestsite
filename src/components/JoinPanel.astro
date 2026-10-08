@@ -1,0 +1,52 @@
+---
+import { type Locale, t, url } from '../i18n'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const dict = t(locale)
+---
+
+<section id="join" class="gutter pb-24">
+  <div
+    class="on-ink flex flex-wrap items-end justify-between gap-x-16 gap-y-10 rounded-[2.25rem] bg-ink p-[clamp(1.75rem,5vw,4.5rem)] text-on-ink"
+  >
+    <div class="flex flex-[1_1_22rem] flex-col gap-5">
+      <h2
+        class="text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.95] font-extrabold tracking-[-0.045em]"
+      >
+        {dict.join.headline}
+      </h2>
+      <p class="max-w-[32rem] text-xl leading-snug text-on-ink-muted">
+        {dict.join.subline}
+      </p>
+    </div>
+    <!-- The profile page reads ?email= and sends the code right away. -->
+    <form
+      action={url('profile', locale)}
+      method="get"
+      class="flex flex-[1_1_22rem] flex-col gap-3"
+    >
+      <label for="join-email" class="text-[15px] font-bold text-on-ink-muted">
+        {dict.join.label}
+      </label>
+      <div class="flex flex-wrap gap-2.5">
+        <input
+          id="join-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+          placeholder={dict.profile.emailPlaceholder}
+          class="field-input min-w-0 flex-[1_1_15rem] border-transparent"
+        >
+        <button type="submit" class="btn btn-accent">
+          {dict.join.cta}
+        </button>
+      </div>
+      <p class="text-[15px] text-on-ink-muted">{dict.join.already}</p>
+    </form>
+  </div>
+</section>
