@@ -1,0 +1,132 @@
+---
+import { Image } from 'astro:assets'
+import { render } from 'astro:content'
+import platformPhoto from '../../assets/events/metro-photo-challenge-1-montreal-stm/metro-photo-challenge-november-2018-montreal-stm-participant-1.jpg'
+import benchPhoto from '../../assets/events/metro-photo-challenge-2-montreal-stm/metro-photo-challenge-march-2019-montreal-stm-participant-2.jpg'
+import walkPhoto from '../../assets/events/unsplash-photowalk-meetups-montreal/unsplash-montreal-photowalk-cold-winter-2.jpeg'
+import founderPhoto from '../../assets/people/jpvalery.jpg'
+import { type Locale, t } from '../../i18n'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { getPage } from '../../lib/content'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const dict = t(locale)
+const page = await getPage(locale, locale === 'fr' ? 'releve' : 'stewards')
+const { Content } = await render(page)
+const photos = [walkPhoto, platformPhoto, benchPhoto].map((src, i) => ({
+  src,
+  alt: dict.stewards.photoAlts[i] ?? '',
+}))
+const lists = [
+  {
+    title: dict.stewards.seekingTitle,
+    items: page.data.seeking ?? [],
+    dot: 'bg-accent',
+  },
+  {
+    title: dict.stewards.offeringTitle,
+    items: page.data.offering ?? [],
+    dot: 'bg-card',
+  },
+]
+---
+
+<BaseLayout
+  title={page.data.title}
+  description={page.data.excerpt}
+  image={walkPhoto}
+  hideStewardsBanner
+>
+  <section class="gutter flex flex-col gap-7 pt-[clamp(2rem,5vw,4.5rem)] pb-16">
+    <p
+      class="flex flex-wrap items-center gap-3 text-[15px] font-bold text-ink-soft"
+    >
+      <span class="tag bg-accent text-ink">{dict.stewards.tag}</span>
+      {dict.stewards.kicker}
+    </p>
+    <h1 class="page-title max-w-[14ch]">{page.data.title}</h1>
+    {page.data.lead && <p class="lead">{page.data.lead}</p>}
+  </section>
+
+  <section class="gutter flex flex-wrap items-start gap-6 pb-24">
+    <article
+      class="flex flex-[999_1_35rem] flex-col gap-8 rounded-[2rem] bg-card p-[clamp(1.75rem,4.5vw,4rem)]"
+    >
+      <div class="letter">
+        <Content />
+      </div>
+      <footer class="flex items-center gap-4 border-t border-line-soft pt-6">
+        <Image
+          src={founderPhoto}
+          alt=""
+          widths={[112]}
+          sizes="56px"
+          class="size-14 flex-none rounded-full object-cover"
+        />
+        <p class="flex flex-col gap-0.5">
+          <span class="text-lg font-extrabold">{page.data.author}</span>
+          <span class="text-base text-muted">
+            {dict.stewards.signatureTitle}
+          </span>
+        </p>
+      </footer>
+    </article>
+
+    <aside class="flex flex-[1_1_21rem] flex-col gap-6">
+      {lists.map((list) => (
+        <div class="flex flex-col gap-4 rounded-[2rem] bg-card p-8">
+          <h2 class="text-[1.625rem] font-extrabold tracking-[-0.025em]">
+            {list.title}
+          </h2>
+          <ul class="flex flex-col">
+            {list.items.map((item) => (
+              <li class="flex gap-4 py-2.5 text-lg leading-snug">
+                <span
+                  aria-hidden="true"
+                  class:list={[
+                    'mt-[3px] size-[18px] flex-none rounded-full border-[5px] border-ink',
+                    list.dot,
+                  ]}
+                />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+      <div class="flex flex-col gap-5 rounded-[2rem] bg-accent p-8 text-ink">
+        <h2
+          class="text-[2.125rem] leading-[1.05] font-extrabold tracking-[-0.03em]"
+        >
+          {dict.stewards.ctaTitle}
+        </h2>
+        <a
+          href="mailto:contact@montrealphoto.club"
+          class="btn btn-ink self-start"
+        >
+          {dict.stewards.ctaButton}
+        </a>
+        <p class="text-[15px] font-semibold">contact@montrealphoto.club</p>
+      </div>
+    </aside>
+  </section>
+
+  <section class="gutter pb-24">
+    <div class="flex flex-wrap gap-4">
+      {photos.map((photo) => (
+        <Image
+          src={photo.src}
+          alt={photo.alt}
+          widths={[360, 560, 800]}
+          sizes="(min-width: 1024px) 33vw, 100vw"
+          class="aspect-[4/5] min-w-0 flex-[1_1_16rem] rounded-3xl object-cover"
+        />
+      ))}
+    </div>
+    <p class="mt-4 text-[15px] text-muted">{dict.stewards.photosCaption}</p>
+  </section>
+</BaseLayout>

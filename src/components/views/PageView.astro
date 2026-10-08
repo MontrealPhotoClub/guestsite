@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets'
+import { render } from 'astro:content'
+import type { Locale } from '../../i18n'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { getPage } from '../../lib/content'
+
+interface Props {
+  locale: Locale
+  /** File name in src/content/pages/<locale>/, without extension. */
+  name: string
+}
+
+const { locale, name } = Astro.props
+const page = await getPage(locale, name)
+const { Content } = await render(page)
+---
+
+<BaseLayout
+  title={page.data.title}
+  description={page.data.excerpt}
+  image={page.data.cover}
+>
+  <article>
+    <header class="gutter pt-[clamp(2rem,5vw,4.5rem)] pb-12">
+      <h1 class="page-title">{page.data.title}</h1>
+    </header>
+    {page.data.cover && (
+      <div class="gutter">
+        <Image
+          src={page.data.cover}
+          alt=""
+          widths={[640, 1024, 1600, 2048]}
+          sizes="(min-width: 1440px) 1344px, 100vw"
+          loading="eager"
+          fetchpriority="high"
+          class="block aspect-[21/9] w-full rounded-card object-cover"
+        />
+      </div>
+    )}
+    <div class="gutter py-16">
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+import { render } from 'astro:content'
+import { formatDate, type Locale, t, url } from '../../i18n'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import JoinPanel from '../JoinPanel.astro'
+
+interface Props {
+  locale: Locale
+  event: CollectionEntry<'events'>
+}
+
+const { locale, event } = Astro.props
+const dict = t(locale)
+const { Content } = await render(event)
+const meta = [event.data.kind, event.data.place].filter(Boolean)
+---
+
+<BaseLayout
+  title={event.data.title}
+  description={event.data.excerpt}
+  image={event.data.cover}
+>
+  <article>
+    <header
+      class="gutter flex flex-col gap-6 pt-[clamp(2rem,5vw,4.5rem)] pb-12"
+    >
+      <a
+        href={url('events', locale)}
+        class="self-start font-semibold text-ink-soft no-underline hover:text-ink hover:underline"
+      >
+        {dict.events.backToEvents}
+      </a>
+      <p class="kicker">
+        <span aria-hidden="true" class="station size-4 border-4"></span>
+        <span>
+          <time datetime={event.data.date.toISOString().slice(0, 10)}>
+            {formatDate(event.data.date, locale)}
+          </time>
+          {meta.map((item) => ` · ${item}`)}
+        </span>
+      </p>
+      <h1 class="page-title max-w-[20ch]">{event.data.title}</h1>
+      <p class="lead">{event.data.excerpt}</p>
+    </header>
+
+    <div class="gutter">
+      <Image
+        src={event.data.cover}
+        alt=""
+        widths={[640, 1024, 1600, 2048]}
+        sizes="(min-width: 1440px) 1344px, 100vw"
+        loading="eager"
+        fetchpriority="high"
+        class="block w-full rounded-card"
+      />
+    </div>
+
+    <div class="gutter py-16">
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </article>
+
+  <JoinPanel locale={locale} />
+</BaseLayout>

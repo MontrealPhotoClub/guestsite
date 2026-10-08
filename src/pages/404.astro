@@ -1,0 +1,34 @@
+---
+import { t, url } from '../i18n'
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+// One static 404 for both locales: French first, then English.
+const fr = t('fr')
+const en = t('en')
+---
+
+<BaseLayout title={fr.notFound.title}>
+  <section
+    class="gutter flex flex-wrap gap-x-16 gap-y-12 pt-[clamp(2rem,5vw,4.5rem)] pb-24"
+  >
+    <div class="flex flex-[1_1_22rem] flex-col items-start gap-6">
+      <p class="kicker">
+        <span aria-hidden="true" class="station station-next size-5"></span>
+        404
+      </p>
+      <h1 class="page-title">{fr.notFound.title}</h1>
+      <p class="lead">{fr.notFound.body}</p>
+      <a href={url('home', 'fr')} class="btn btn-ink">
+        {fr.notFound.back}
+      </a>
+    </div>
+    <div lang="en-CA" class="flex flex-[1_1_22rem] flex-col items-start gap-6">
+      <p class="kicker" aria-hidden="true">&nbsp;</p>
+      <h2 class="page-title">{en.notFound.title}</h2>
+      <p class="lead">{en.notFound.body}</p>
+      <a href={url('home', 'en')} class="btn btn-outline">
+        {en.notFound.back}
+      </a>
+    </div>
+  </section>
+</BaseLayout>

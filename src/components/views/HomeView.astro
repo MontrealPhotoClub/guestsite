@@ -1,0 +1,121 @@
+---
+import { Image } from 'astro:assets'
+import workshopsPhoto from '../../assets/events/metro-photo-challenge-1-montreal-stm/hero.jpg'
+import challengesPhoto from '../../assets/events/metro-photo-challenge-1-montreal-stm/metro-photo-challenge-november-2018-montreal-stm-participant-3.jpg'
+import heroPhoto from '../../assets/events/metro-photo-challenge-2-montreal-stm/metro-photo-challenge-march-2019-montreal-stm-participant-3.jpg'
+import walksPhoto from '../../assets/events/unsplash-photowalk-meetups-montreal/unsplash-montreal-photowalk-cold-winter.jpeg'
+import { fill, type Locale, t, url } from '../../i18n'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { getEvents } from '../../lib/content'
+import EventLine from '../EventLine.astro'
+import JoinPanel from '../JoinPanel.astro'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const dict = t(locale)
+const events = await getEvents(locale)
+const formats = [
+  { ...dict.formats.walks, photo: walksPhoto },
+  { ...dict.formats.workshops, photo: workshopsPhoto },
+  { ...dict.formats.challenges, photo: challengesPhoto },
+]
+---
+
+<BaseLayout>
+  <section
+    class="gutter flex flex-wrap items-stretch gap-x-14 gap-y-10 pt-[clamp(2rem,5vw,4.5rem)] pb-24"
+  >
+    <div class="flex flex-[999_1_35rem] flex-col justify-between gap-10">
+      <div class="flex flex-col gap-7">
+        <p class="kicker">
+          <span
+            aria-hidden="true"
+            class="size-3.5 rounded-full border-4 border-ink bg-accent"
+          ></span>
+          {dict.home.kicker}
+        </p>
+        <h1
+          class="text-[clamp(3.25rem,7.4vw,7.25rem)] leading-[0.94] font-extrabold tracking-[-0.045em] text-balance"
+        >
+          {dict.home.headline}
+        </h1>
+        <p
+          class="max-w-[39rem] text-[clamp(1.1875rem,1.7vw,1.4375rem)] leading-[1.45] text-ink-soft"
+        >
+          {dict.home.subline}
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a href="#join" class="btn btn-ink">
+          {dict.home.ctaJoin}
+        </a>
+        <a href={url('events', locale)} class="btn btn-outline">
+          {dict.home.ctaEvents}
+        </a>
+      </div>
+    </div>
+    <figure class="relative m-0 max-w-[32.5rem] flex-[1_1_26rem] self-start">
+      <Image
+        src={heroPhoto}
+        alt={dict.home.heroAlt}
+        widths={[480, 720, 1040]}
+        sizes="(min-width: 1024px) 520px, 100vw"
+        loading="eager"
+        fetchpriority="high"
+        class="block aspect-[4/5] w-full rounded-card object-cover"
+      />
+      <figcaption
+        class="absolute bottom-4 left-4 flex items-center gap-2 rounded-full bg-card px-3.5 py-2 text-sm font-semibold"
+      >
+        <span aria-hidden="true" class="size-2.5 rounded-full bg-accent"></span>
+        {dict.home.heroCaption}
+      </figcaption>
+    </figure>
+  </section>
+
+  <section id="line" class="gutter bg-card py-24">
+    <div
+      class="mb-10 flex flex-wrap items-end justify-between gap-x-10 gap-y-4"
+    >
+      <div class="flex flex-col gap-3">
+        <h2 class="section-title">{dict.line.title}</h2>
+        <p class="text-xl text-muted">
+          {fill(dict.line.subtitle, { count: events.length })}
+        </p>
+      </div>
+      <a
+        href={url('events', locale)}
+        class="text-[17px] font-bold underline underline-offset-4"
+      >
+        {dict.line.all}
+      </a>
+    </div>
+    <EventLine locale={locale} events={events} showNext />
+  </section>
+
+  <section class="gutter py-24">
+    <h2 class="section-title mb-10">{dict.formats.title}</h2>
+    <div class="flex flex-wrap gap-5">
+      {formats.map((format) => (
+        <article class="flex flex-[1_1_18.75rem] flex-col gap-4 rounded-card bg-card p-4 pb-7">
+          <Image
+            src={format.photo}
+            alt={format.alt}
+            widths={[400, 640, 900]}
+            sizes="(min-width: 1024px) 33vw, 100vw"
+            class="block aspect-[4/3] w-full rounded-photo object-cover"
+          />
+          <h3 class="mx-3 text-[1.75rem] font-extrabold tracking-[-0.025em]">
+            {format.title}
+          </h3>
+          <p class="mx-3 text-lg leading-normal text-ink-soft">{format.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <JoinPanel locale={locale} />
+</BaseLayout>

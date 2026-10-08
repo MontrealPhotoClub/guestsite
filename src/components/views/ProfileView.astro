@@ -1,0 +1,50 @@
+---
+import { type Locale, t, url } from '../../i18n'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import ProfileApp from '../profile/ProfileApp'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const dict = t(locale)
+---
+
+<BaseLayout title={dict.profile.title}>
+  <section
+    class="gutter flex flex-wrap items-start gap-x-16 gap-y-10 pt-[clamp(2rem,5vw,4.5rem)] pb-24"
+  >
+    <div class="flex flex-[1_1_22rem] flex-col gap-6">
+      <p class="kicker">
+        <span
+          aria-hidden="true"
+          class="size-3.5 rounded-full border-4 border-ink bg-accent"
+        ></span>
+        {dict.profile.kicker}
+      </p>
+      <h1
+        class="text-[clamp(2.75rem,5.5vw,5rem)] leading-[0.95] font-extrabold tracking-[-0.045em] text-balance"
+      >
+        {dict.profile.headline}
+      </h1>
+      <p class="max-w-[30rem] text-xl leading-snug text-ink-soft">
+        {dict.profile.aside}
+      </p>
+    </div>
+    <div
+      class="w-full max-w-[40rem] flex-[1_1_26rem] rounded-[2rem] bg-card p-[clamp(1.5rem,4vw,3rem)]"
+    >
+      <ProfileApp
+        client:only="react"
+        locale={locale}
+        strings={dict.profile}
+        redirectTo={url('profile', locale)}
+      >
+        <p slot="fallback" class="profile-status">
+          {dict.profile.loading}
+        </p>
+      </ProfileApp>
+    </div>
+  </section>
+</BaseLayout>
