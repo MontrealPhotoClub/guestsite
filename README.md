@@ -81,9 +81,10 @@ does not know Tailwind 4 themes.
    previews it). `pnpm email:build` writes `emails/out/<name>.liquid.html`,
    both languages in one file. Paste it as the message body, with no layout:
    `login-code` into the transactional message `login-convex`, `welcome` into
-   the ONB-Welcome campaign email. The subject lines are in
-   `scripts/build-emails.mjs`. The login API call sends the code to
-   unsubscribed members too and does not keep it in delivery history.
+   the ONB-Welcome campaign email, `newsletter-2026-10` into a broadcast.
+   Email images go in `public/email/` so their URLs stay stable. The subject
+   lines are in `scripts/build-emails.mjs`. The login API call sends the code
+   to unsubscribed members too and does not keep it in delivery history.
 2. **API keys.** Set `CIO_SITE_ID`, `CIO_TRACK_API_KEY` and `CIO_APP_API_KEY`
    on the Convex deployment.
 3. **New members** are submitted to the existing `next-signup-fr` and
