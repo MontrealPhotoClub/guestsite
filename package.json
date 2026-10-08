@@ -20,27 +20,27 @@
     "email:build": "node scripts/build-emails.mjs"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
+    "@astrojs/check": "0.9.10",
     "@biomejs/biome": "2.5.15",
     "@types/node": "26.6.4",
-    "@types/react": "^19.3.0",
-    "@types/react-dom": "^19.3.0",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
     "react-email": "6.11.1",
-    "typescript": "^6.0.3"
+    "typescript": "6.0.3"
   },
   "dependencies": {
-    "@astrojs/react": "^7.0.1",
-    "@astrojs/sitemap": "^3.7.4",
-    "@auth/core": "^0.41.3",
-    "@convex-dev/auth": "^0.0.95",
-    "@convex-dev/rate-limiter": "^0.4.1",
-    "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.3.6",
-    "convex": "^1.46.0",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0",
+    "@astrojs/react": "7.0.1",
+    "@astrojs/sitemap": "3.7.4",
+    "@auth/core": "0.41.3",
+    "@convex-dev/auth": "0.0.95",
+    "@convex-dev/rate-limiter": "0.4.1",
+    "@tailwindcss/vite": "4.3.3",
+    "astro": "7.3.6",
+    "convex": "1.46.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
     "sharp": "0.35.5",
-    "tailwindcss": "^4.3.3"
+    "tailwindcss": "4.3.3"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
